@@ -1,0 +1,286 @@
+@prefix : <https://w3id.org/digitalconstruction/0.5/Occupancy#> .
+@prefix dc: <http://purl.org/dc/elements/1.1/> .
+@prefix owl: <http://www.w3.org/2002/07/owl#> .
+@prefix rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
+@prefix xml: <http://www.w3.org/XML/1998/namespace> .
+@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
+@prefix dica: <https://w3id.org/digitalconstruction/0.5/Agents#> .
+@prefix dicc: <https://w3id.org/digitalconstruction/0.5/Contexts#> .
+@prefix dice: <https://w3id.org/digitalconstruction/0.5/Entities#> .
+@prefix dici: <https://w3id.org/digitalconstruction/0.5/Information#> .
+@prefix dicp: <https://w3id.org/digitalconstruction/0.5/Processes#> .
+@prefix dicv: <https://w3id.org/digitalconstruction/0.5/Variables#> .
+@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix vann: <http://purl.org/vocab/vann/> .
+@prefix terms: <http://purl.org/dc/terms/> .
+@base <https://w3id.org/digitalconstruction/0.5/Occupancy> .
+
+<https://w3id.org/digitalconstruction/0.5/Occupancy> rdf:type owl:Ontology ;
+                                                      owl:imports <https://w3id.org/digitalconstruction/0.5/Information/information.ttl> ;
+                                                      dc:date "2020-04-24" ;
+                                                      dc:description "Digital Construction Occupancy ontology represents those aspects of construction and renovation projects that concern the comfort, safety and health of occupants, including visual and thermal comfort, indoor air quality and building acoustics, as well as related sensor observations." ;
+                                                      dc:title "Digital Construction Occupancy" ;
+                                                      terms:contributor "Seppo Törmä" ;
+                                                      terms:created "2020-01-12" ;
+                                                      terms:creator "Kostas Tsatsakis (kostas@suite5.eu)" ,
+                                                                    "Spiros Kousouris (spiros@suite5.eu)" ;
+                                                      terms:license <https://creativecommons.org/licenses/by/4.0/> ;
+                                                      vann:preferredNamespacePrefix "dicob" ;
+                                                      vann:preferredNamespaceUri "https://w3id.org/digitalconstruction/0.5/Occupancy" ;
+                                                      rdfs:comment "Digital Construction Occupancy ontology represents those aspects of construction and renovation projects that concern the comfort, safety and health of occupants, including visual and thermal comfort, indoor air quality and building acoustics, as well as related sensor observations." ;
+                                                      rdfs:label "Digital Construction Occupancy" ;
+                                                      rdfs:seeAlso <https://w3id.org/digitalconstruction/0.5> .
+
+#################################################################
+#    Annotation properties
+#################################################################
+
+###  http://purl.org/dc/elements/1.1/creator
+dc:creator rdf:type owl:AnnotationProperty .
+
+
+###  http://purl.org/dc/elements/1.1/date
+dc:date rdf:type owl:AnnotationProperty .
+
+
+###  http://purl.org/dc/elements/1.1/description
+dc:description rdf:type owl:AnnotationProperty .
+
+
+###  http://purl.org/dc/elements/1.1/title
+dc:title rdf:type owl:AnnotationProperty .
+
+
+###  http://purl.org/dc/terms/abstract
+terms:abstract rdf:type owl:AnnotationProperty .
+
+
+###  http://purl.org/dc/terms/contributor
+terms:contributor rdf:type owl:AnnotationProperty .
+
+
+###  http://purl.org/dc/terms/created
+terms:created rdf:type owl:AnnotationProperty .
+
+
+###  http://purl.org/dc/terms/description
+terms:description rdf:type owl:AnnotationProperty .
+
+
+###  http://purl.org/dc/terms/license
+terms:license rdf:type owl:AnnotationProperty .
+
+
+###  http://purl.org/vocab/vann/preferredNamespacePrefix
+vann:preferredNamespacePrefix rdf:type owl:AnnotationProperty .
+
+
+###  http://purl.org/vocab/vann/preferredNamespaceUri
+vann:preferredNamespaceUri rdf:type owl:AnnotationProperty .
+
+
+#################################################################
+#    Object Properties
+#################################################################
+
+###  https://w3id.org/digitalconstruction/0.5/Occupancy#hasProfilingPeriod
+:hasProfilingPeriod rdf:type owl:ObjectProperty ;
+                    rdfs:domain :OccupantProfile ;
+                    rdfs:range dice:TimeInterval ;
+                    rdfs:label "hasProfilingPeriod" .
+
+
+###  https://w3id.org/digitalconstruction/0.5/Occupancy#intendsToPrevent
+:intendsToPrevent rdf:type owl:ObjectProperty ;
+                  rdfs:domain dici:RegulatoryOrder ;
+                  rdfs:range :AvoidableDisposition ;
+                  rdfs:label "intendsToPrevent" .
+
+
+#################################################################
+#    Classes
+#################################################################
+
+###  https://w3id.org/digitalconstruction/0.5/Occupancy#AcousticMeter
+:AcousticMeter rdf:type owl:Class ;
+               rdfs:subClassOf dice:Device .
+
+
+###  https://w3id.org/digitalconstruction/0.5/Occupancy#AcousticProperty
+:AcousticProperty rdf:type owl:Class ;
+                  rdfs:subClassOf :OccupancyProperty ;
+                  rdfs:label "AcousticProperty" .
+
+
+###  https://w3id.org/digitalconstruction/0.5/Occupancy#AcousticRegulation
+:AcousticRegulation rdf:type owl:Class ;
+                    rdfs:subClassOf dici:RegulatoryOrder ;
+                    rdfs:label "AcousticRegulation" .
+
+
+###  https://w3id.org/digitalconstruction/0.5/Occupancy#AirQualityIndex
+:AirQualityIndex rdf:type owl:Class ;
+                 rdfs:subClassOf :AirQualityProperty ;
+                 rdfs:label "AirQualityIndex" .
+
+
+###  https://w3id.org/digitalconstruction/0.5/Occupancy#AirQualityProperty
+:AirQualityProperty rdf:type owl:Class ;
+                    rdfs:subClassOf :OccupancyProperty ;
+                    rdfs:label "AirQualityProperty" .
+
+
+###  https://w3id.org/digitalconstruction/0.5/Occupancy#AirQualitySensor
+:AirQualitySensor rdf:type owl:Class ;
+                  rdfs:subClassOf dice:Sensor ;
+                  rdfs:label "AirQualitySensor" .
+
+
+###  https://w3id.org/digitalconstruction/0.5/Occupancy#AirQualityStation
+:AirQualityStation rdf:type owl:Class ;
+                   rdfs:subClassOf dice:Device .
+
+
+###  https://w3id.org/digitalconstruction/0.5/Occupancy#AirborneSoundInsulation
+:AirborneSoundInsulation rdf:type owl:Class ;
+                         rdfs:subClassOf :AcousticProperty ;
+                         rdfs:label "AirborneSoundInsulation" .
+
+
+###  https://w3id.org/digitalconstruction/0.5/Occupancy#AirborneSoundReductionIndex
+:AirborneSoundReductionIndex rdf:type owl:Class ;
+                             rdfs:subClassOf :AcousticProperty ;
+                             rdfs:label "AirborneSoundReductionIndex" .
+
+
+###  https://w3id.org/digitalconstruction/0.5/Occupancy#AvoidableDisposition
+:AvoidableDisposition rdf:type owl:Class ;
+                      rdfs:subClassOf dice:Disposition ;
+                      rdfs:label "AvoidableDisposition" .
+
+
+###  https://w3id.org/digitalconstruction/0.5/Occupancy#ComfortProperty
+:ComfortProperty rdf:type owl:Class ;
+                 rdfs:subClassOf :OccupancyProperty ;
+                 rdfs:label "ComfortProperty" .
+
+
+###  https://w3id.org/digitalconstruction/0.5/Occupancy#FlankingSoundTransmission
+:FlankingSoundTransmission rdf:type owl:Class ;
+                           rdfs:subClassOf :AcousticProperty ;
+                           rdfs:label "FlankingSoundTransmission" .
+
+
+###  https://w3id.org/digitalconstruction/0.5/Occupancy#HealthProblem
+:HealthProblem rdf:type owl:Class ;
+               rdfs:subClassOf :AvoidableDisposition ;
+               rdfs:label "HealthProblem" .
+
+
+###  https://w3id.org/digitalconstruction/0.5/Occupancy#ImpactSoundInsulationLevel
+:ImpactSoundInsulationLevel rdf:type owl:Class ;
+                            rdfs:subClassOf :AcousticProperty ;
+                            rdfs:label "ImpactSoundInsulationLevel" .
+
+
+###  https://w3id.org/digitalconstruction/0.5/Occupancy#IndoorAirQualityRegulation
+:IndoorAirQualityRegulation rdf:type owl:Class ;
+                            rdfs:subClassOf dici:RegulatoryOrder ;
+                            rdfs:label "IndoorAirQualityRegulation" .
+
+
+###  https://w3id.org/digitalconstruction/0.5/Occupancy#JointSoundInsulation
+:JointSoundInsulation rdf:type owl:Class ;
+                      rdfs:subClassOf :AcousticProperty ;
+                      rdfs:label "JointSoundInsulation" .
+
+
+###  https://w3id.org/digitalconstruction/0.5/Occupancy#NoiseSensor
+:NoiseSensor rdf:type owl:Class ;
+             rdfs:subClassOf dice:Sensor ;
+             rdfs:label "NoiseSensor" .
+
+
+###  https://w3id.org/digitalconstruction/0.5/Occupancy#OccupancyActivity
+:OccupancyActivity rdf:type owl:Class ;
+                   owl:equivalentClass [ rdf:type owl:Restriction ;
+                                         owl:onProperty dica:hasAgent ;
+                                         owl:allValuesFrom dica:Occupant
+                                       ] ;
+                   rdfs:subClassOf dicp:Activity ;
+                   rdfs:label "OccupancyActivity" .
+
+
+###  https://w3id.org/digitalconstruction/0.5/Occupancy#OccupancyProperty
+:OccupancyProperty rdf:type owl:Class ;
+                   rdfs:subClassOf dicv:QuantitativeProperty ;
+                   rdfs:label "OccupancyProperty" .
+
+
+###  https://w3id.org/digitalconstruction/0.5/Occupancy#OccupantBehavior
+:OccupantBehavior rdf:type owl:Class ;
+                  rdfs:subClassOf [ owl:intersectionOf ( dicp:BehaviorProcess
+                                                         [ rdf:type owl:Restriction ;
+                                                           owl:onProperty dica:hasAgent ;
+                                                           owl:allValuesFrom dica:Occupant
+                                                         ]
+                                                         [ rdf:type owl:Restriction ;
+                                                           owl:onProperty dice:hasOccurrentPart ;
+                                                           owl:allValuesFrom :OccupancyActivity
+                                                         ]
+                                                       ) ;
+                                    rdf:type owl:Class
+                                  ] ;
+                  rdfs:label "OccupantBehavior" .
+
+
+###  https://w3id.org/digitalconstruction/0.5/Occupancy#OccupantProfile
+:OccupantProfile rdf:type owl:Class ;
+                 rdfs:subClassOf [ owl:intersectionOf ( dici:InformationContentEntity
+                                                        [ rdf:type owl:Restriction ;
+                                                          owl:onProperty dici:isAbout ;
+                                                          owl:allValuesFrom dica:Occupant
+                                                        ]
+                                                      ) ;
+                                   rdf:type owl:Class
+                                 ] ;
+                 rdfs:label "OccupantProfile" .
+
+
+###  https://w3id.org/digitalconstruction/0.5/Occupancy#OccupantWithSystemInteraction
+:OccupantWithSystemInteraction rdf:type owl:Class ;
+                               rdfs:subClassOf :OccupancyActivity ;
+                               rdfs:label "OccupantWithSystemInteraction" .
+
+
+###  https://w3id.org/digitalconstruction/0.5/Occupancy#SoundAbsorption
+:SoundAbsorption rdf:type owl:Class ;
+                 rdfs:subClassOf :AcousticProperty ;
+                 rdfs:label "SoundAbsorption" .
+
+
+###  https://w3id.org/digitalconstruction/0.5/Occupancy#SoundSourceRole
+:SoundSourceRole rdf:type owl:Class ;
+                 rdfs:subClassOf dice:Role ;
+                 rdfs:label "SoundSourceRole" .
+
+
+###  https://w3id.org/digitalconstruction/0.5/Occupancy#ThermalComfort
+:ThermalComfort rdf:type owl:Class ;
+                rdfs:subClassOf :ComfortProperty ;
+                rdfs:label "ThermalComfort" .
+
+
+###  https://w3id.org/digitalconstruction/0.5/Occupancy#VibrationReductionIndex
+:VibrationReductionIndex rdf:type owl:Class ;
+                         rdfs:subClassOf :AcousticProperty ;
+                         rdfs:label "VibrationReductionIndex" .
+
+
+###  https://w3id.org/digitalconstruction/0.5/Occupancy#VisualComfort
+:VisualComfort rdf:type owl:Class ;
+               rdfs:subClassOf :ComfortProperty ;
+               rdfs:label "VisualComfort" .
+
+
+###  Generated by the OWL API (version 4.5.9.2019-02-01T07:24:44Z) https://github.com/owlcs/owlapi

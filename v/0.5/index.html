@@ -1,0 +1,987 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <title>Digital Construction Occupancy</title>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
+    
+    <style>
+        #pylode {
+            position: fixed;
+            top: 130px;
+            left: -60px;
+            font-size: small;
+            transform: rotate(-90deg);
+            color: grey;
+        }
+        #pylode a {
+            font-size: 2em;
+            font-weight: bold;
+            text-decoration: none;
+            color: #005A9C;
+        }
+        #pylode a:hover {
+            color: #333;
+        }
+
+        .cardinality {
+            font-style: italic;
+            color: #aa00aa;
+        }
+
+        dt {
+            font-weight: bold;
+            padding: 5px 0 5px 0;
+        }
+
+        ul.hlist {
+            list-style-type: none;
+            border: 1px solid navy;
+            padding:5px;
+            background-color: #F4FFFF;
+        }
+
+        ul.hierarchy {
+            border: 1px solid navy;
+            padding: 5px 25px 5px 25px;
+            background-color: #F4FFFF;
+        }
+
+
+        ul.hlist li {
+            display: inline;
+            margin-right: 10px;
+        }
+
+        .entity {
+            border: 1px solid navy;
+            margin:5px 0 5px 0;
+            padding: 5px;
+        }
+
+        .entity th {
+            width: 150px;
+            vertical-align: top;
+        }
+
+        .entity th,
+        .entity td {
+            padding-bottom: 20px;
+        }
+
+        .entity table th {
+            text-align: left;
+        }
+
+        section#overview img {
+            max-width: 1000px;
+        }
+
+        h1, h2, h3, h4, h5, h6 {
+            text-align: left
+        }
+        h1, h2, h3 {
+            color: #005A9C; background: white
+        }
+        h1 {
+            font: 170% sans-serif;
+            line-height: 110%;
+        }
+        h2 {
+            font: 140% sans-serif;
+            margin-top:40px;
+        }
+        h3 {
+            font: 120% sans-serif;
+            margin-top: 3px;
+            padding-bottom: 5px;
+            border-bottom: 1px solid navy;
+        }
+        h4 { font: bold 100% sans-serif }
+        h5 { font: italic 100% sans-serif }
+        h6 { font: small-caps 100% sans-serif }
+
+
+        body {
+            padding: 2em 70px 2em 70px;
+            margin: 0;
+            font-family: sans-serif;
+            color: black;
+            background: white;
+            background-position: top left;
+            background-attachment: fixed;
+            background-repeat: no-repeat;
+            text-align: justify;
+        }
+
+        section {
+            max-width: 1500px;
+        }
+
+        .figure {
+            margin-bottom: 20px;
+        }
+
+        :link { color: #00C; background: transparent }
+        :visited { color: #609; background: transparent }
+        a:active { color: #C00; background: transparent }
+
+        .sup-c,
+        .sup-op,
+        .sup-fp,
+        .sup-dp,
+        .sup-ap,
+        .sup-p,
+        .sup-ni,
+        .sup-cp,
+        .sup-cl {
+            cursor:help;
+            margin-left: 3px;
+        }
+
+        .sup-c {
+            color:orange;
+        }
+
+        .sup-op {
+            color:navy;
+        }
+
+        .sup-fp {
+            color:lightskyblue;
+        }
+
+        .sup-dp {
+            color:green;
+        }
+
+        .sup-ap {
+            color:darkred;
+        }
+
+        .sup-p {
+            color:black;
+        }
+
+        .sup-ni {
+            color:brown;
+        }
+
+        .sup-cp {
+            color:orange;
+        }
+
+        .sup-cl {
+            color:darkred;
+        }
+
+        code {
+            font-size: large;
+            color: darkred;
+        }
+
+        /* less prominent links for properties */
+        .proplink {
+            color: #336;
+            text-decoration: none;
+        }
+    </style>
+    
+    <script type="application/ld+json">
+      [
+  {
+    "@id": "https://w3id.org/digitalconstruction/0.5/Occupancy",
+    "@type": [
+      "https://schema.org/DefinedTermSet"
+    ],
+    "https://schema.org/description": [
+      {
+        "@value": "<p>Digital Construction Occupancy ontology represents those aspects of construction and renovation projects that concern the comfort, safety and health of occupants, including visual and thermal comfort, indoor air quality and building acoustics, as well as related sensor observations.</p>"
+      }
+    ],
+    "https://schema.org/license": [
+      {
+        "@id": "https://creativecommons.org/licenses/by/4.0/"
+      }
+    ],
+    "https://schema.org/name": [
+      {
+        "@value": "Digital Construction Occupancy"
+      }
+    ]
+  }
+]
+    </script>
+</head>
+<body>
+  <div id="pylode">made by <a href="http://github.com/rdflib/pyLODE">
+    <span style="color:#329545;">p</span><span style="color:#f9cb33;">y</span>LODE</a>
+    <span style="font-size:smaller;">2.8.5</span>
+  </div>
+  <h1>Digital Construction Occupancy</h1>
+<section id="metadata">
+    <h2 style="display:none;">Metadata</h2>
+    <dl>
+        <dt>URI</dt>
+        <dd><code>https://w3id.org/digitalconstruction/0.5/Occupancy</code></dd>
+        <dt><a class="proplink" href="https://www.dublincore.org/specifications/dublin-core/dcmi-terms/#http://purl.org/dc/terms/creator">Creator</a>(s)</dt>
+        <dd>
+            Kostas Tsatsakis (kostas@suite5.eu)<br/>
+            Spiros Kousouris (spiros@suite5.eu)<br/>
+        </dd>
+        <dt><a class="proplink" href="https://www.dublincore.org/specifications/dublin-core/dcmi-terms/#http://purl.org/dc/terms/contributor">Contributor</a>(s)</dt>
+        <dd>
+            Seppo Törmä<br/>
+        </dd>
+        <dt><a class="proplink" href="https://www.dublincore.org/specifications/dublin-core/dcmi-terms/#http://purl.org/dc/terms/created">Created</a></dt>
+        <dd>2020-01-12</dd>
+        <dt>Imports</dt>
+        <dd>
+            <a href="https://w3id.org/digitalconstruction/0.5/Information/information.ttl">https://w3id.org/digitalconstruction/0.5/Information/information.ttl</a><br/>
+        </dd>
+        <dt>License</dt>
+        <dd><a href="https://creativecommons.org/licenses/by/4.0/">https://creativecommons.org/licenses/by/4.0/</a></dd>
+        <dt>Ontology RDF</dt>
+        <dd><a href="occupancy.ttl">RDF (turtle)</a></dd>
+    </dl>
+    <h2>Description</h2>
+    <div id="description">
+        <p>Digital Construction Occupancy ontology represents those aspects of construction and renovation projects that concern the comfort, safety and health of occupants, including visual and thermal comfort, indoor air quality and building acoustics, as well as related sensor observations.</p>
+    </div>
+</section>
+<section id="toc">
+    <h2>Table of Contents</h2>
+    <ol>
+        <li><a href="#classes">Classes</a></li>
+        <li><a href="#objectproperties">Object Properties</a></li>
+        <li><a href="#annotationproperties">Annotation Properties</a></li>
+        <li><a href="#namespaces">Namespaces</a></li>
+        <li><a href="#legend">Legend</a></li>
+    </ol>
+</section>
+<section id="overview">
+    <h2>Overview</h2>
+    <div class="figure">
+        <div style="width:500px; height:50px; background-color: lightgrey; border:solid 2px grey; padding:10px;margin-bottom:5px; text-align:center;">Pictures say 1,000 words</div>
+        <div class="caption"><strong>Figure 1:</strong> Ontology overview</div>
+    </div>
+</section>
+  <section id="classes">
+    <h2>Classes <span style="float:right; font-size:smaller;"><a href="">&uparrow;</a></span></h2>
+    <ul class="hlist">
+        <li><a href="#AcousticMeter">AcousticMeter</a></li>
+        <li><a href="#AcousticProperty">AcousticProperty</a></li>
+        <li><a href="#AcousticRegulation">AcousticRegulation</a></li>
+        <li><a href="#AirQualityIndex">AirQualityIndex</a></li>
+        <li><a href="#AirQualityProperty">AirQualityProperty</a></li>
+        <li><a href="#AirQualitySensor">AirQualitySensor</a></li>
+        <li><a href="#AirQualityStation">AirQualityStation</a></li>
+        <li><a href="#AirborneSoundInsulation">AirborneSoundInsulation</a></li>
+        <li><a href="#AirborneSoundReductionIndex">AirborneSoundReductionIndex</a></li>
+        <li><a href="#AvoidableDisposition">AvoidableDisposition</a></li>
+        <li><a href="#ComfortProperty">ComfortProperty</a></li>
+        <li><a href="#FlankingSoundTransmission">FlankingSoundTransmission</a></li>
+        <li><a href="#HealthProblem">HealthProblem</a></li>
+        <li><a href="#ImpactSoundInsulationLevel">ImpactSoundInsulationLevel</a></li>
+        <li><a href="#IndoorAirQualityRegulation">IndoorAirQualityRegulation</a></li>
+        <li><a href="#JointSoundInsulation">JointSoundInsulation</a></li>
+        <li><a href="#NoiseSensor">NoiseSensor</a></li>
+        <li><a href="#OccupancyActivity">OccupancyActivity</a></li>
+        <li><a href="#OccupancyProperty">OccupancyProperty</a></li>
+        <li><a href="#OccupantBehavior">OccupantBehavior</a></li>
+        <li><a href="#OccupantProfile">OccupantProfile</a></li>
+        <li><a href="#OccupantWithSystemInteraction">OccupantWithSystemInteraction</a></li>
+        <li><a href="#SoundAbsorption">SoundAbsorption</a></li>
+        <li><a href="#SoundSourceRole">SoundSourceRole</a></li>
+        <li><a href="#ThermalComfort">ThermalComfort</a></li>
+        <li><a href="#VibrationReductionIndex">VibrationReductionIndex</a></li>
+        <li><a href="#VisualComfort">VisualComfort</a></li>
+    </ul>
+    <div class="entity class" id="AcousticMeter">
+        <h3>AcousticMeter<sup title="class" class="sup-c">c</sup></h3>
+        <table>
+            <tr>
+                <th>URI</th>
+                <td><code>https://w3id.org/digitalconstruction/0.5/Occupancy#AcousticMeter</code></td>
+            </tr>
+            <tr>
+                <th>Super-classes</th>
+                <td>
+                    <a href="https://w3id.org/digitalconstruction/0.5/Entities#Device">dice:Device</a><sup class="sup-c" title="class">c</sup><br/>
+                </td>
+            </tr>
+        </table>
+    </div>
+    <div class="entity class" id="AcousticProperty">
+        <h3>AcousticProperty<sup title="class" class="sup-c">c</sup></h3>
+        <table>
+            <tr>
+                <th>URI</th>
+                <td><code>https://w3id.org/digitalconstruction/0.5/Occupancy#AcousticProperty</code></td>
+            </tr>
+            <tr>
+                <th>Super-classes</th>
+                <td>
+                    <a href="#OccupancyProperty">OccupancyProperty</a><sup class="sup-c" title="class">c</sup><br/>
+                </td>
+            </tr>
+            <tr>
+                <th>Sub-classes</th>
+                <td>
+                    <a href="#AirborneSoundInsulation">AirborneSoundInsulation</a><sup class="sup-c" title="class">c</sup><br/>
+                    <a href="#JointSoundInsulation">JointSoundInsulation</a><sup class="sup-c" title="class">c</sup><br/>
+                    <a href="#SoundAbsorption">SoundAbsorption</a><sup class="sup-c" title="class">c</sup><br/>
+                    <a href="#AirborneSoundReductionIndex">AirborneSoundReductionIndex</a><sup class="sup-c" title="class">c</sup><br/>
+                    <a href="#VibrationReductionIndex">VibrationReductionIndex</a><sup class="sup-c" title="class">c</sup><br/>
+                    <a href="#FlankingSoundTransmission">FlankingSoundTransmission</a><sup class="sup-c" title="class">c</sup><br/>
+                    <a href="#ImpactSoundInsulationLevel">ImpactSoundInsulationLevel</a><sup class="sup-c" title="class">c</sup><br/>
+                </td>
+            </tr>
+        </table>
+    </div>
+    <div class="entity class" id="AcousticRegulation">
+        <h3>AcousticRegulation<sup title="class" class="sup-c">c</sup></h3>
+        <table>
+            <tr>
+                <th>URI</th>
+                <td><code>https://w3id.org/digitalconstruction/0.5/Occupancy#AcousticRegulation</code></td>
+            </tr>
+            <tr>
+                <th>Super-classes</th>
+                <td>
+                    <a href="https://w3id.org/digitalconstruction/0.5/Information#RegulatoryOrder">dici:RegulatoryOrder</a><sup class="sup-c" title="class">c</sup><br/>
+                </td>
+            </tr>
+        </table>
+    </div>
+    <div class="entity class" id="AirQualityIndex">
+        <h3>AirQualityIndex<sup title="class" class="sup-c">c</sup></h3>
+        <table>
+            <tr>
+                <th>URI</th>
+                <td><code>https://w3id.org/digitalconstruction/0.5/Occupancy#AirQualityIndex</code></td>
+            </tr>
+            <tr>
+                <th>Super-classes</th>
+                <td>
+                    <a href="#AirQualityProperty">AirQualityProperty</a><sup class="sup-c" title="class">c</sup><br/>
+                </td>
+            </tr>
+        </table>
+    </div>
+    <div class="entity class" id="AirQualityProperty">
+        <h3>AirQualityProperty<sup title="class" class="sup-c">c</sup></h3>
+        <table>
+            <tr>
+                <th>URI</th>
+                <td><code>https://w3id.org/digitalconstruction/0.5/Occupancy#AirQualityProperty</code></td>
+            </tr>
+            <tr>
+                <th>Super-classes</th>
+                <td>
+                    <a href="#OccupancyProperty">OccupancyProperty</a><sup class="sup-c" title="class">c</sup><br/>
+                </td>
+            </tr>
+            <tr>
+                <th>Sub-classes</th>
+                <td>
+                    <a href="#AirQualityIndex">AirQualityIndex</a><sup class="sup-c" title="class">c</sup><br/>
+                </td>
+            </tr>
+        </table>
+    </div>
+    <div class="entity class" id="AirQualitySensor">
+        <h3>AirQualitySensor<sup title="class" class="sup-c">c</sup></h3>
+        <table>
+            <tr>
+                <th>URI</th>
+                <td><code>https://w3id.org/digitalconstruction/0.5/Occupancy#AirQualitySensor</code></td>
+            </tr>
+            <tr>
+                <th>Super-classes</th>
+                <td>
+                    <a href="https://w3id.org/digitalconstruction/0.5/Entities#Sensor">dice:Sensor</a><sup class="sup-c" title="class">c</sup><br/>
+                </td>
+            </tr>
+        </table>
+    </div>
+    <div class="entity class" id="AirQualityStation">
+        <h3>AirQualityStation<sup title="class" class="sup-c">c</sup></h3>
+        <table>
+            <tr>
+                <th>URI</th>
+                <td><code>https://w3id.org/digitalconstruction/0.5/Occupancy#AirQualityStation</code></td>
+            </tr>
+            <tr>
+                <th>Super-classes</th>
+                <td>
+                    <a href="https://w3id.org/digitalconstruction/0.5/Entities#Device">dice:Device</a><sup class="sup-c" title="class">c</sup><br/>
+                </td>
+            </tr>
+        </table>
+    </div>
+    <div class="entity class" id="AirborneSoundInsulation">
+        <h3>AirborneSoundInsulation<sup title="class" class="sup-c">c</sup></h3>
+        <table>
+            <tr>
+                <th>URI</th>
+                <td><code>https://w3id.org/digitalconstruction/0.5/Occupancy#AirborneSoundInsulation</code></td>
+            </tr>
+            <tr>
+                <th>Super-classes</th>
+                <td>
+                    <a href="#AcousticProperty">AcousticProperty</a><sup class="sup-c" title="class">c</sup><br/>
+                </td>
+            </tr>
+        </table>
+    </div>
+    <div class="entity class" id="AirborneSoundReductionIndex">
+        <h3>AirborneSoundReductionIndex<sup title="class" class="sup-c">c</sup></h3>
+        <table>
+            <tr>
+                <th>URI</th>
+                <td><code>https://w3id.org/digitalconstruction/0.5/Occupancy#AirborneSoundReductionIndex</code></td>
+            </tr>
+            <tr>
+                <th>Super-classes</th>
+                <td>
+                    <a href="#AcousticProperty">AcousticProperty</a><sup class="sup-c" title="class">c</sup><br/>
+                </td>
+            </tr>
+        </table>
+    </div>
+    <div class="entity class" id="AvoidableDisposition">
+        <h3>AvoidableDisposition<sup title="class" class="sup-c">c</sup></h3>
+        <table>
+            <tr>
+                <th>URI</th>
+                <td><code>https://w3id.org/digitalconstruction/0.5/Occupancy#AvoidableDisposition</code></td>
+            </tr>
+            <tr>
+                <th>Super-classes</th>
+                <td>
+                    <a href="https://w3id.org/digitalconstruction/0.5/Entities#Disposition">dice:Disposition</a><sup class="sup-c" title="class">c</sup><br/>
+                </td>
+            </tr>
+            <tr>
+                <th>Sub-classes</th>
+                <td>
+                    <a href="#HealthProblem">HealthProblem</a><sup class="sup-c" title="class">c</sup><br/>
+                </td>
+            </tr>
+            <tr>
+                <th>In range of</th>
+                <td>
+                    <a href="#intendsToPrevent">intendsToPrevent</a><sup class="sup-op" title="object property">op</sup><br/>
+                </td>
+            </tr>
+        </table>
+    </div>
+    <div class="entity class" id="ComfortProperty">
+        <h3>ComfortProperty<sup title="class" class="sup-c">c</sup></h3>
+        <table>
+            <tr>
+                <th>URI</th>
+                <td><code>https://w3id.org/digitalconstruction/0.5/Occupancy#ComfortProperty</code></td>
+            </tr>
+            <tr>
+                <th>Super-classes</th>
+                <td>
+                    <a href="#OccupancyProperty">OccupancyProperty</a><sup class="sup-c" title="class">c</sup><br/>
+                </td>
+            </tr>
+            <tr>
+                <th>Sub-classes</th>
+                <td>
+                    <a href="#VisualComfort">VisualComfort</a><sup class="sup-c" title="class">c</sup><br/>
+                    <a href="#ThermalComfort">ThermalComfort</a><sup class="sup-c" title="class">c</sup><br/>
+                </td>
+            </tr>
+        </table>
+    </div>
+    <div class="entity class" id="FlankingSoundTransmission">
+        <h3>FlankingSoundTransmission<sup title="class" class="sup-c">c</sup></h3>
+        <table>
+            <tr>
+                <th>URI</th>
+                <td><code>https://w3id.org/digitalconstruction/0.5/Occupancy#FlankingSoundTransmission</code></td>
+            </tr>
+            <tr>
+                <th>Super-classes</th>
+                <td>
+                    <a href="#AcousticProperty">AcousticProperty</a><sup class="sup-c" title="class">c</sup><br/>
+                </td>
+            </tr>
+        </table>
+    </div>
+    <div class="entity class" id="HealthProblem">
+        <h3>HealthProblem<sup title="class" class="sup-c">c</sup></h3>
+        <table>
+            <tr>
+                <th>URI</th>
+                <td><code>https://w3id.org/digitalconstruction/0.5/Occupancy#HealthProblem</code></td>
+            </tr>
+            <tr>
+                <th>Super-classes</th>
+                <td>
+                    <a href="#AvoidableDisposition">AvoidableDisposition</a><sup class="sup-c" title="class">c</sup><br/>
+                </td>
+            </tr>
+        </table>
+    </div>
+    <div class="entity class" id="ImpactSoundInsulationLevel">
+        <h3>ImpactSoundInsulationLevel<sup title="class" class="sup-c">c</sup></h3>
+        <table>
+            <tr>
+                <th>URI</th>
+                <td><code>https://w3id.org/digitalconstruction/0.5/Occupancy#ImpactSoundInsulationLevel</code></td>
+            </tr>
+            <tr>
+                <th>Super-classes</th>
+                <td>
+                    <a href="#AcousticProperty">AcousticProperty</a><sup class="sup-c" title="class">c</sup><br/>
+                </td>
+            </tr>
+        </table>
+    </div>
+    <div class="entity class" id="IndoorAirQualityRegulation">
+        <h3>IndoorAirQualityRegulation<sup title="class" class="sup-c">c</sup></h3>
+        <table>
+            <tr>
+                <th>URI</th>
+                <td><code>https://w3id.org/digitalconstruction/0.5/Occupancy#IndoorAirQualityRegulation</code></td>
+            </tr>
+            <tr>
+                <th>Super-classes</th>
+                <td>
+                    <a href="https://w3id.org/digitalconstruction/0.5/Information#RegulatoryOrder">dici:RegulatoryOrder</a><sup class="sup-c" title="class">c</sup><br/>
+                </td>
+            </tr>
+        </table>
+    </div>
+    <div class="entity class" id="JointSoundInsulation">
+        <h3>JointSoundInsulation<sup title="class" class="sup-c">c</sup></h3>
+        <table>
+            <tr>
+                <th>URI</th>
+                <td><code>https://w3id.org/digitalconstruction/0.5/Occupancy#JointSoundInsulation</code></td>
+            </tr>
+            <tr>
+                <th>Super-classes</th>
+                <td>
+                    <a href="#AcousticProperty">AcousticProperty</a><sup class="sup-c" title="class">c</sup><br/>
+                </td>
+            </tr>
+        </table>
+    </div>
+    <div class="entity class" id="NoiseSensor">
+        <h3>NoiseSensor<sup title="class" class="sup-c">c</sup></h3>
+        <table>
+            <tr>
+                <th>URI</th>
+                <td><code>https://w3id.org/digitalconstruction/0.5/Occupancy#NoiseSensor</code></td>
+            </tr>
+            <tr>
+                <th>Super-classes</th>
+                <td>
+                    <a href="https://w3id.org/digitalconstruction/0.5/Entities#Sensor">dice:Sensor</a><sup class="sup-c" title="class">c</sup><br/>
+                </td>
+            </tr>
+        </table>
+    </div>
+    <div class="entity class" id="OccupancyActivity">
+        <h3>OccupancyActivity<sup title="class" class="sup-c">c</sup></h3>
+        <table>
+            <tr>
+                <th>URI</th>
+                <td><code>https://w3id.org/digitalconstruction/0.5/Occupancy#OccupancyActivity</code></td>
+            </tr>
+            <tr>
+                <th>Super-classes</th>
+                <td>
+                    <a href="https://w3id.org/digitalconstruction/0.5/Processes#Activity">dicp:Activity</a><sup class="sup-c" title="class">c</sup><br/>
+                </td>
+            </tr>
+            <tr>
+                <th>Sub-classes</th>
+                <td>
+                    <a href="#OccupantWithSystemInteraction">OccupantWithSystemInteraction</a><sup class="sup-c" title="class">c</sup><br/>
+                </td>
+            </tr>
+        </table>
+    </div>
+    <div class="entity class" id="OccupancyProperty">
+        <h3>OccupancyProperty<sup title="class" class="sup-c">c</sup></h3>
+        <table>
+            <tr>
+                <th>URI</th>
+                <td><code>https://w3id.org/digitalconstruction/0.5/Occupancy#OccupancyProperty</code></td>
+            </tr>
+            <tr>
+                <th>Super-classes</th>
+                <td>
+                    <a href="https://w3id.org/digitalconstruction/0.5/Variables#QuantitativeProperty">dicv:QuantitativeProperty</a><sup class="sup-c" title="class">c</sup><br/>
+                </td>
+            </tr>
+            <tr>
+                <th>Sub-classes</th>
+                <td>
+                    <a href="#ComfortProperty">ComfortProperty</a><sup class="sup-c" title="class">c</sup><br/>
+                    <a href="#AirQualityProperty">AirQualityProperty</a><sup class="sup-c" title="class">c</sup><br/>
+                    <a href="#AcousticProperty">AcousticProperty</a><sup class="sup-c" title="class">c</sup><br/>
+                </td>
+            </tr>
+        </table>
+    </div>
+    <div class="entity class" id="OccupantBehavior">
+        <h3>OccupantBehavior<sup title="class" class="sup-c">c</sup></h3>
+        <table>
+            <tr>
+                <th>URI</th>
+                <td><code>https://w3id.org/digitalconstruction/0.5/Occupancy#OccupantBehavior</code></td>
+            </tr>
+            <tr>
+                <th>Super-classes</th>
+                <td>
+                    (<a href="https://w3id.org/digitalconstruction/0.5/Processes#BehaviorProcess">dicp:BehaviorProcess</a><sup class="sup-c" title="class">c</sup> and <a href="ub1bL223C58">ub1bL223C58</a><sup class="sup-c" title="class">c</sup> and <a href="ub1bL227C58">ub1bL227C58</a><sup class="sup-c" title="class">c</sup>)<br/>
+                </td>
+            </tr>
+        </table>
+    </div>
+    <div class="entity class" id="OccupantProfile">
+        <h3>OccupantProfile<sup title="class" class="sup-c">c</sup></h3>
+        <table>
+            <tr>
+                <th>URI</th>
+                <td><code>https://w3id.org/digitalconstruction/0.5/Occupancy#OccupantProfile</code></td>
+            </tr>
+            <tr>
+                <th>Super-classes</th>
+                <td>
+                    (<a href="https://w3id.org/digitalconstruction/0.5/Information#InformationContentEntity">dici:InformationContentEntity</a><sup class="sup-c" title="class">c</sup> and <a href="ub1bL240C57">ub1bL240C57</a><sup class="sup-c" title="class">c</sup>)<br/>
+                </td>
+            </tr>
+            <tr>
+                <th>In domain of</th>
+                <td>
+                    <a href="#hasProfilingPeriod">hasProfilingPeriod</a><sup class="sup-op" title="object property">op</sup><br/>
+                </td>
+            </tr>
+        </table>
+    </div>
+    <div class="entity class" id="OccupantWithSystemInteraction">
+        <h3>OccupantWithSystemInteraction<sup title="class" class="sup-c">c</sup></h3>
+        <table>
+            <tr>
+                <th>URI</th>
+                <td><code>https://w3id.org/digitalconstruction/0.5/Occupancy#OccupantWithSystemInteraction</code></td>
+            </tr>
+            <tr>
+                <th>Super-classes</th>
+                <td>
+                    <a href="#OccupancyActivity">OccupancyActivity</a><sup class="sup-c" title="class">c</sup><br/>
+                </td>
+            </tr>
+        </table>
+    </div>
+    <div class="entity class" id="SoundAbsorption">
+        <h3>SoundAbsorption<sup title="class" class="sup-c">c</sup></h3>
+        <table>
+            <tr>
+                <th>URI</th>
+                <td><code>https://w3id.org/digitalconstruction/0.5/Occupancy#SoundAbsorption</code></td>
+            </tr>
+            <tr>
+                <th>Super-classes</th>
+                <td>
+                    <a href="#AcousticProperty">AcousticProperty</a><sup class="sup-c" title="class">c</sup><br/>
+                </td>
+            </tr>
+        </table>
+    </div>
+    <div class="entity class" id="SoundSourceRole">
+        <h3>SoundSourceRole<sup title="class" class="sup-c">c</sup></h3>
+        <table>
+            <tr>
+                <th>URI</th>
+                <td><code>https://w3id.org/digitalconstruction/0.5/Occupancy#SoundSourceRole</code></td>
+            </tr>
+            <tr>
+                <th>Super-classes</th>
+                <td>
+                    <a href="https://w3id.org/digitalconstruction/0.5/Entities#Role">dice:Role</a><sup class="sup-c" title="class">c</sup><br/>
+                </td>
+            </tr>
+        </table>
+    </div>
+    <div class="entity class" id="ThermalComfort">
+        <h3>ThermalComfort<sup title="class" class="sup-c">c</sup></h3>
+        <table>
+            <tr>
+                <th>URI</th>
+                <td><code>https://w3id.org/digitalconstruction/0.5/Occupancy#ThermalComfort</code></td>
+            </tr>
+            <tr>
+                <th>Super-classes</th>
+                <td>
+                    <a href="#ComfortProperty">ComfortProperty</a><sup class="sup-c" title="class">c</sup><br/>
+                </td>
+            </tr>
+        </table>
+    </div>
+    <div class="entity class" id="VibrationReductionIndex">
+        <h3>VibrationReductionIndex<sup title="class" class="sup-c">c</sup></h3>
+        <table>
+            <tr>
+                <th>URI</th>
+                <td><code>https://w3id.org/digitalconstruction/0.5/Occupancy#VibrationReductionIndex</code></td>
+            </tr>
+            <tr>
+                <th>Super-classes</th>
+                <td>
+                    <a href="#AcousticProperty">AcousticProperty</a><sup class="sup-c" title="class">c</sup><br/>
+                </td>
+            </tr>
+        </table>
+    </div>
+    <div class="entity class" id="VisualComfort">
+        <h3>VisualComfort<sup title="class" class="sup-c">c</sup></h3>
+        <table>
+            <tr>
+                <th>URI</th>
+                <td><code>https://w3id.org/digitalconstruction/0.5/Occupancy#VisualComfort</code></td>
+            </tr>
+            <tr>
+                <th>Super-classes</th>
+                <td>
+                    <a href="#ComfortProperty">ComfortProperty</a><sup class="sup-c" title="class">c</sup><br/>
+                </td>
+            </tr>
+        </table>
+    </div>
+</section>
+<section id="objectproperties">
+    <h2>Object Properties <span style="float:right; font-size:smaller;"><a href="">&uparrow;</a></span></h2>
+    <ul class="hlist">
+        <li><a href="#hasProfilingPeriod">hasProfilingPeriod</a></li>
+        <li><a href="#intendsToPrevent">intendsToPrevent</a></li>
+    </ul>
+    <div class="entity property" id="hasProfilingPeriod">
+        <h3>hasProfilingPeriod<sup title="object property" class="sup-op">op</sup></h3>
+        <table>
+            <tr>
+                <th>URI</th>
+                <td><code>https://w3id.org/digitalconstruction/0.5/Occupancy#hasProfilingPeriod</code></td>
+            </tr>
+            <tr>
+                <th>Domain(s)</th>
+                <td>
+                    <a href="#OccupantProfile">OccupantProfile</a><sup class="sup-c" title="class">c</sup>
+                </td>
+            </tr>
+            <tr>
+                <th>Range(s)</th>
+                <td>
+                    <a href="https://w3id.org/digitalconstruction/0.5/Entities#TimeInterval">dice:TimeInterval</a><sup class="sup-c" title="class">c</sup>
+                </td>
+            </tr>
+        </table>
+    </div>
+    <div class="entity property" id="intendsToPrevent">
+        <h3>intendsToPrevent<sup title="object property" class="sup-op">op</sup></h3>
+        <table>
+            <tr>
+                <th>URI</th>
+                <td><code>https://w3id.org/digitalconstruction/0.5/Occupancy#intendsToPrevent</code></td>
+            </tr>
+            <tr>
+                <th>Domain(s)</th>
+                <td>
+                    <a href="https://w3id.org/digitalconstruction/0.5/Information#RegulatoryOrder">dici:RegulatoryOrder</a><sup class="sup-c" title="class">c</sup>
+                </td>
+            </tr>
+            <tr>
+                <th>Range(s)</th>
+                <td>
+                    <a href="#AvoidableDisposition">AvoidableDisposition</a><sup class="sup-c" title="class">c</sup>
+                </td>
+            </tr>
+        </table>
+    </div>
+</section>
+
+<section id="annotationproperties">
+    <h2>Annotation Properties <span style="float:right; font-size:smaller;"><a href="">&uparrow;</a></span></h2>
+    <ul class="hlist">
+        <li><a href="#creator">creator</a></li>
+        <li><a href="#date">date</a></li>
+        <li><a href="#description">description</a></li>
+        <li><a href="#title">title</a></li>
+        <li><a href="#abstract">abstract</a></li>
+        <li><a href="#contributor">contributor</a></li>
+        <li><a href="#created">created</a></li>
+        <li><a href="#description1">description</a></li>
+        <li><a href="#license">license</a></li>
+        <li><a href="#preferredNamespacePrefix">preferredNamespacePrefix</a></li>
+        <li><a href="#preferredNamespaceUri">preferredNamespaceUri</a></li>
+    </ul>
+    <div class="entity property" id="creator">
+        <h3>creator<sup title="annotation property" class="sup-ap">ap</sup></h3>
+        <table>
+            <tr>
+                <th>URI</th>
+                <td><code>http://purl.org/dc/elements/1.1/creator</code></td>
+            </tr>
+        </table>
+    </div>
+    <div class="entity property" id="date">
+        <h3>date<sup title="annotation property" class="sup-ap">ap</sup></h3>
+        <table>
+            <tr>
+                <th>URI</th>
+                <td><code>http://purl.org/dc/elements/1.1/date</code></td>
+            </tr>
+        </table>
+    </div>
+    <div class="entity property" id="description">
+        <h3>description<sup title="annotation property" class="sup-ap">ap</sup></h3>
+        <table>
+            <tr>
+                <th>URI</th>
+                <td><code>http://purl.org/dc/elements/1.1/description</code></td>
+            </tr>
+        </table>
+    </div>
+    <div class="entity property" id="title">
+        <h3>title<sup title="annotation property" class="sup-ap">ap</sup></h3>
+        <table>
+            <tr>
+                <th>URI</th>
+                <td><code>http://purl.org/dc/elements/1.1/title</code></td>
+            </tr>
+        </table>
+    </div>
+    <div class="entity property" id="abstract">
+        <h3>abstract<sup title="annotation property" class="sup-ap">ap</sup></h3>
+        <table>
+            <tr>
+                <th>URI</th>
+                <td><code>http://purl.org/dc/terms/abstract</code></td>
+            </tr>
+        </table>
+    </div>
+    <div class="entity property" id="contributor">
+        <h3>contributor<sup title="annotation property" class="sup-ap">ap</sup></h3>
+        <table>
+            <tr>
+                <th>URI</th>
+                <td><code>http://purl.org/dc/terms/contributor</code></td>
+            </tr>
+        </table>
+    </div>
+    <div class="entity property" id="created">
+        <h3>created<sup title="annotation property" class="sup-ap">ap</sup></h3>
+        <table>
+            <tr>
+                <th>URI</th>
+                <td><code>http://purl.org/dc/terms/created</code></td>
+            </tr>
+        </table>
+    </div>
+    <div class="entity property" id="description1">
+        <h3>description<sup title="annotation property" class="sup-ap">ap</sup></h3>
+        <table>
+            <tr>
+                <th>URI</th>
+                <td><code>http://purl.org/dc/terms/description</code></td>
+            </tr>
+        </table>
+    </div>
+    <div class="entity property" id="license">
+        <h3>license<sup title="annotation property" class="sup-ap">ap</sup></h3>
+        <table>
+            <tr>
+                <th>URI</th>
+                <td><code>http://purl.org/dc/terms/license</code></td>
+            </tr>
+        </table>
+    </div>
+    <div class="entity property" id="preferredNamespacePrefix">
+        <h3>preferredNamespacePrefix<sup title="annotation property" class="sup-ap">ap</sup></h3>
+        <table>
+            <tr>
+                <th>URI</th>
+                <td><code>http://purl.org/vocab/vann/preferredNamespacePrefix</code></td>
+            </tr>
+        </table>
+    </div>
+    <div class="entity property" id="preferredNamespaceUri">
+        <h3>preferredNamespaceUri<sup title="annotation property" class="sup-ap">ap</sup></h3>
+        <table>
+            <tr>
+                <th>URI</th>
+                <td><code>http://purl.org/vocab/vann/preferredNamespaceUri</code></td>
+            </tr>
+        </table>
+    </div>
+</section>
+
+  
+  <section id="namedindividuals">
+    <h2>Named Individuals <span style="float:right; font-size:smaller;"><a href="">&uparrow;</a></span></h2>
+    <ul class="hlist">
+    </ul>
+</section>
+  
+  <section id="namespaces">
+    <h2>Namespaces <span style="float:right; font-size:smaller;"><a href="">&uparrow;</a></span></h2>
+    <dl>
+        <dt>:</dt>
+        <dd><code>https://w3id.org/digitalconstruction/0.5/Occupancy#</code></dd>
+        <dt>dc</dt>
+        <dd><code>http://purl.org/dc/elements/1.1/</code></dd>
+        <dt>dica</dt>
+        <dd><code>https://w3id.org/digitalconstruction/0.5/Agents#</code></dd>
+        <dt>dicc</dt>
+        <dd><code>https://w3id.org/digitalconstruction/0.5/Contexts#</code></dd>
+        <dt>dice</dt>
+        <dd><code>https://w3id.org/digitalconstruction/0.5/Entities#</code></dd>
+        <dt>dici</dt>
+        <dd><code>https://w3id.org/digitalconstruction/0.5/Information#</code></dd>
+        <dt>dicp</dt>
+        <dd><code>https://w3id.org/digitalconstruction/0.5/Processes#</code></dd>
+        <dt>dicv</dt>
+        <dd><code>https://w3id.org/digitalconstruction/0.5/Variables#</code></dd>
+        <dt>owl</dt>
+        <dd><code>http://www.w3.org/2002/07/owl#</code></dd>
+        <dt>prov</dt>
+        <dd><code>http://www.w3.org/ns/prov#</code></dd>
+        <dt>rdf</dt>
+        <dd><code>http://www.w3.org/1999/02/22-rdf-syntax-ns#</code></dd>
+        <dt>rdfs</dt>
+        <dd><code>http://www.w3.org/2000/01/rdf-schema#</code></dd>
+        <dt>sdo</dt>
+        <dd><code>https://schema.org/</code></dd>
+        <dt>skos</dt>
+        <dd><code>http://www.w3.org/2004/02/skos/core#</code></dd>
+        <dt>terms</dt>
+        <dd><code>http://purl.org/dc/terms/</code></dd>
+        <dt>vann</dt>
+        <dd><code>http://purl.org/vocab/vann/</code></dd>
+        <dt>xsd</dt>
+        <dd><code>http://www.w3.org/2001/XMLSchema#</code></dd>
+    </dl>
+</section>
+  <section id="legend">
+      <h2>Legend</h2>
+      <table class="entity">
+          <tr><td><sup class="sup-c" title="Classes">c</sup></td><td>Classes</td></tr>
+          <tr><td><sup class="sup-op" title="Object Properties">op</sup></td><td>Object Properties</td></tr>
+          <tr><td><sup class="sup-fp" title="Functional Properties">fp</sup></td><td>Functional Properties</td></tr>
+          <tr><td><sup class="sup-dp" title="Data Properties">dp</sup></td><td>Data Properties</td></tr>
+          <tr><td><sup class="sup-ap" title="Annotation Properties">dp</sup></td><td>Annotation Properties</td></tr>
+          <tr><td><sup class="sup-p" title="Properties">p</sup></td><td>Properties</td></tr>
+          <tr><td><sup class="sup-ni" title="Named Individuals">ni</sup></td><td>Named Individuals</td></tr>
+      </table>
+  </section>
+</body>
+</html>
