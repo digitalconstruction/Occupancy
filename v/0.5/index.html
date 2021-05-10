@@ -225,8 +225,8 @@
         <dd><code>https://w3id.org/digitalconstruction/0.5/Occupancy</code></dd>
         <dt><a class="proplink" href="https://www.dublincore.org/specifications/dublin-core/dcmi-terms/#http://purl.org/dc/terms/creator">Creator</a>(s)</dt>
         <dd>
-            Kostas Tsatsakis (kostas@suite5.eu)<br/>
-            Spiros Kousouris (spiros@suite5.eu)<br/>
+            Kostas Tsatsakis<br/>
+            Spiros Kousouris<br/>
         </dd>
         <dt><a class="proplink" href="https://www.dublincore.org/specifications/dublin-core/dcmi-terms/#http://purl.org/dc/terms/contributor">Contributor</a>(s)</dt>
         <dd>
@@ -253,7 +253,9 @@
     <ol>
         <li><a href="#classes">Classes</a></li>
         <li><a href="#objectproperties">Object Properties</a></li>
+        <li><a href="#datatypeproperties">Datatype Properties</a></li>
         <li><a href="#annotationproperties">Annotation Properties</a></li>
+        <li><a href="#namedindividuals">Named Individuals</a></li>
         <li><a href="#namespaces">Namespaces</a></li>
         <li><a href="#legend">Legend</a></li>
     </ol>
@@ -268,34 +270,116 @@
   <section id="classes">
     <h2>Classes <span style="float:right; font-size:smaller;"><a href="">&uparrow;</a></span></h2>
     <ul class="hlist">
+        <li><a href="#AcousticClass">AcousticClass</a></li>
+        <li><a href="#AcousticComfort">AcousticComfort</a></li>
+        <li><a href="#AcousticIssue">AcousticIssue</a></li>
         <li><a href="#AcousticMeter">AcousticMeter</a></li>
         <li><a href="#AcousticProperty">AcousticProperty</a></li>
         <li><a href="#AcousticRegulation">AcousticRegulation</a></li>
+        <li><a href="#ActuationByOccupant">ActuationByOccupant</a></li>
         <li><a href="#AirQualityIndex">AirQualityIndex</a></li>
+        <li><a href="#AirQualityIssue">AirQualityIssue</a></li>
         <li><a href="#AirQualityProperty">AirQualityProperty</a></li>
+        <li><a href="#AirQualityRegulation">AirQualityRegulation</a></li>
         <li><a href="#AirQualitySensor">AirQualitySensor</a></li>
         <li><a href="#AirQualityStation">AirQualityStation</a></li>
         <li><a href="#AirborneSoundInsulation">AirborneSoundInsulation</a></li>
         <li><a href="#AirborneSoundReductionIndex">AirborneSoundReductionIndex</a></li>
+        <li><a href="#AnnualThermalDiscomfortHours">AnnualThermalDiscomfortHours</a></li>
         <li><a href="#AvoidableDisposition">AvoidableDisposition</a></li>
+        <li><a href="#ComfortIssue">ComfortIssue</a></li>
         <li><a href="#ComfortProperty">ComfortProperty</a></li>
+        <li><a href="#EnvironmentProperty">EnvironmentProperty</a></li>
+        <li><a href="#EquipmentSound">EquipmentSound</a></li>
         <li><a href="#FlankingSoundTransmission">FlankingSoundTransmission</a></li>
         <li><a href="#HealthProblem">HealthProblem</a></li>
+        <li><a href="#HumanSound">HumanSound</a></li>
+        <li><a href="#Humidity">Humidity</a></li>
+        <li><a href="#HumiditySensor">HumiditySensor</a></li>
         <li><a href="#ImpactSoundInsulationLevel">ImpactSoundInsulationLevel</a></li>
         <li><a href="#IndoorAirQualityRegulation">IndoorAirQualityRegulation</a></li>
         <li><a href="#JointSoundInsulation">JointSoundInsulation</a></li>
+        <li><a href="#LightDimmer">LightDimmer</a></li>
+        <li><a href="#LightSwitch">LightSwitch</a></li>
+        <li><a href="#LuminanceSensor">LuminanceSensor</a></li>
         <li><a href="#NoiseSensor">NoiseSensor</a></li>
         <li><a href="#OccupancyActivity">OccupancyActivity</a></li>
+        <li><a href="#OccupancyComfort">OccupancyComfort</a></li>
+        <li><a href="#OccupancyIssue">OccupancyIssue</a></li>
         <li><a href="#OccupancyProperty">OccupancyProperty</a></li>
         <li><a href="#OccupantBehavior">OccupantBehavior</a></li>
         <li><a href="#OccupantProfile">OccupantProfile</a></li>
         <li><a href="#OccupantWithSystemInteraction">OccupantWithSystemInteraction</a></li>
+        <li><a href="#RangeConstraint">RangeConstraint</a></li>
         <li><a href="#SoundAbsorption">SoundAbsorption</a></li>
+        <li><a href="#SoundLevel">SoundLevel</a></li>
+        <li><a href="#SoundLevelConstraint">SoundLevelConstraint</a></li>
+        <li><a href="#SoundSource">SoundSource</a></li>
         <li><a href="#SoundSourceRole">SoundSourceRole</a></li>
+        <li><a href="#Temperature">Temperature</a></li>
+        <li><a href="#TemperatureSensor">TemperatureSensor</a></li>
         <li><a href="#ThermalComfort">ThermalComfort</a></li>
+        <li><a href="#Thermostat">Thermostat</a></li>
         <li><a href="#VibrationReductionIndex">VibrationReductionIndex</a></li>
         <li><a href="#VisualComfort">VisualComfort</a></li>
     </ul>
+    <div class="entity class" id="AcousticClass">
+        <h3>AcousticClass<sup title="class" class="sup-c">c</sup></h3>
+        <table>
+            <tr>
+                <th>URI</th>
+                <td><code>https://w3id.org/digitalconstruction/0.5/Occupancy#AcousticClass</code></td>
+            </tr>
+            <tr>
+                <th>Super-classes</th>
+                <td>
+                    <a href="https://w3id.org/digitalconstruction/0.5/Variables#ConjunctiveConstraint">dicv:ConjunctiveConstraint</a><sup class="sup-c" title="class">c</sup><br/>
+                </td>
+            </tr>
+            <tr>
+                <th>Restrictions</th>
+                <td>
+                    <a href="https://w3id.org/digitalconstruction/0.5/Variables#hasConstituentConstraint">dicv:hasConstituentConstraint</a> <span class="cardinality">some</span> <a href="#SoundLevelConstraint">SoundLevelConstraint</a><sup class="sup-c" title="class">c</sup><br/>
+                </td>
+            </tr>
+            <tr>
+                <th>In range of</th>
+                <td>
+                    <a href="#hasAcousticClass">hasAcousticClass</a><sup class="sup-op" title="object property">op</sup><br/>
+                </td>
+            </tr>
+        </table>
+    </div>
+    <div class="entity class" id="AcousticComfort">
+        <h3>AcousticComfort<sup title="class" class="sup-c">c</sup></h3>
+        <table>
+            <tr>
+                <th>URI</th>
+                <td><code>https://w3id.org/digitalconstruction/0.5/Occupancy#AcousticComfort</code></td>
+            </tr>
+            <tr>
+                <th>Super-classes</th>
+                <td>
+                    <a href="#OccupancyComfort">OccupancyComfort</a><sup class="sup-c" title="class">c</sup><br/>
+                </td>
+            </tr>
+        </table>
+    </div>
+    <div class="entity class" id="AcousticIssue">
+        <h3>AcousticIssue<sup title="class" class="sup-c">c</sup></h3>
+        <table>
+            <tr>
+                <th>URI</th>
+                <td><code>https://w3id.org/digitalconstruction/0.5/Occupancy#AcousticIssue</code></td>
+            </tr>
+            <tr>
+                <th>Super-classes</th>
+                <td>
+                    <a href="#OccupancyIssue">OccupancyIssue</a><sup class="sup-c" title="class">c</sup><br/>
+                </td>
+            </tr>
+        </table>
+    </div>
     <div class="entity class" id="AcousticMeter">
         <h3>AcousticMeter<sup title="class" class="sup-c">c</sup></h3>
         <table>
@@ -321,19 +405,20 @@
             <tr>
                 <th>Super-classes</th>
                 <td>
-                    <a href="#OccupancyProperty">OccupancyProperty</a><sup class="sup-c" title="class">c</sup><br/>
+                    <a href="#EnvironmentProperty">EnvironmentProperty</a><sup class="sup-c" title="class">c</sup><br/>
                 </td>
             </tr>
             <tr>
                 <th>Sub-classes</th>
                 <td>
-                    <a href="#AirborneSoundInsulation">AirborneSoundInsulation</a><sup class="sup-c" title="class">c</sup><br/>
-                    <a href="#JointSoundInsulation">JointSoundInsulation</a><sup class="sup-c" title="class">c</sup><br/>
-                    <a href="#SoundAbsorption">SoundAbsorption</a><sup class="sup-c" title="class">c</sup><br/>
                     <a href="#AirborneSoundReductionIndex">AirborneSoundReductionIndex</a><sup class="sup-c" title="class">c</sup><br/>
-                    <a href="#VibrationReductionIndex">VibrationReductionIndex</a><sup class="sup-c" title="class">c</sup><br/>
                     <a href="#FlankingSoundTransmission">FlankingSoundTransmission</a><sup class="sup-c" title="class">c</sup><br/>
+                    <a href="#JointSoundInsulation">JointSoundInsulation</a><sup class="sup-c" title="class">c</sup><br/>
+                    <a href="#VibrationReductionIndex">VibrationReductionIndex</a><sup class="sup-c" title="class">c</sup><br/>
+                    <a href="#SoundAbsorption">SoundAbsorption</a><sup class="sup-c" title="class">c</sup><br/>
                     <a href="#ImpactSoundInsulationLevel">ImpactSoundInsulationLevel</a><sup class="sup-c" title="class">c</sup><br/>
+                    <a href="#SoundLevel">SoundLevel</a><sup class="sup-c" title="class">c</sup><br/>
+                    <a href="#AirborneSoundInsulation">AirborneSoundInsulation</a><sup class="sup-c" title="class">c</sup><br/>
                 </td>
             </tr>
         </table>
@@ -349,6 +434,33 @@
                 <th>Super-classes</th>
                 <td>
                     <a href="https://w3id.org/digitalconstruction/0.5/Information#RegulatoryOrder">dici:RegulatoryOrder</a><sup class="sup-c" title="class">c</sup><br/>
+                </td>
+            </tr>
+            <tr>
+                <th>Restrictions</th>
+                <td>
+                    <a href="#poseRestriction">poseRestriction</a><sup class="sup-op" title="object property">op</sup> <span class="cardinality">some</span> <a href="#AcousticClass">AcousticClass</a><sup class="sup-c" title="class">c</sup><br/>
+                </td>
+            </tr>
+        </table>
+    </div>
+    <div class="entity class" id="ActuationByOccupant">
+        <h3>ActuationByOccupant<sup title="class" class="sup-c">c</sup></h3>
+        <table>
+            <tr>
+                <th>URI</th>
+                <td><code>https://w3id.org/digitalconstruction/0.5/Occupancy#ActuationByOccupant</code></td>
+            </tr>
+            <tr>
+                <th>Description</th>
+                <td>
+                    <p>An actuation activity made by the occupant. For example, adjust thermostat, adjust ventilation, turn lights on/off or turn lights dimmer.</p>
+                </td>
+            </tr>
+            <tr>
+                <th>Super-classes</th>
+                <td>
+                    <a href="https://w3id.org/digitalconstruction/0.5/Processes#Actuation">dicp:Actuation</a><sup class="sup-c" title="class">c</sup><br/>
                 </td>
             </tr>
         </table>
@@ -368,6 +480,21 @@
             </tr>
         </table>
     </div>
+    <div class="entity class" id="AirQualityIssue">
+        <h3>AirQualityIssue<sup title="class" class="sup-c">c</sup></h3>
+        <table>
+            <tr>
+                <th>URI</th>
+                <td><code>https://w3id.org/digitalconstruction/0.5/Occupancy#AirQualityIssue</code></td>
+            </tr>
+            <tr>
+                <th>Super-classes</th>
+                <td>
+                    <a href="#OccupancyIssue">OccupancyIssue</a><sup class="sup-c" title="class">c</sup><br/>
+                </td>
+            </tr>
+        </table>
+    </div>
     <div class="entity class" id="AirQualityProperty">
         <h3>AirQualityProperty<sup title="class" class="sup-c">c</sup></h3>
         <table>
@@ -378,13 +505,28 @@
             <tr>
                 <th>Super-classes</th>
                 <td>
-                    <a href="#OccupancyProperty">OccupancyProperty</a><sup class="sup-c" title="class">c</sup><br/>
+                    <a href="#EnvironmentProperty">EnvironmentProperty</a><sup class="sup-c" title="class">c</sup><br/>
                 </td>
             </tr>
             <tr>
                 <th>Sub-classes</th>
                 <td>
                     <a href="#AirQualityIndex">AirQualityIndex</a><sup class="sup-c" title="class">c</sup><br/>
+                </td>
+            </tr>
+        </table>
+    </div>
+    <div class="entity class" id="AirQualityRegulation">
+        <h3>AirQualityRegulation<sup title="class" class="sup-c">c</sup></h3>
+        <table>
+            <tr>
+                <th>URI</th>
+                <td><code>https://w3id.org/digitalconstruction/0.5/Occupancy#AirQualityRegulation</code></td>
+            </tr>
+            <tr>
+                <th>Super-classes</th>
+                <td>
+                    <a href="https://w3id.org/digitalconstruction/0.5/Information#RegulatoryOrder">dici:RegulatoryOrder</a><sup class="sup-c" title="class">c</sup><br/>
                 </td>
             </tr>
         </table>
@@ -449,6 +591,34 @@
             </tr>
         </table>
     </div>
+    <div class="entity class" id="AnnualThermalDiscomfortHours">
+        <h3>AnnualThermalDiscomfortHours<sup title="class" class="sup-c">c</sup></h3>
+        <table>
+            <tr>
+                <th>URI</th>
+                <td><code>https://w3id.org/digitalconstruction/0.5/Occupancy#AnnualThermalDiscomfortHours</code></td>
+            </tr>
+            <tr>
+                <th>Description</th>
+                <td>
+                    <p>Number of hours that the temperature of the bearer is annually above 27 degrees celsius</p>
+                </td>
+            </tr>
+            <tr>
+                <th>Super-classes</th>
+                <td>
+                    <a href="#ThermalComfort">ThermalComfort</a><sup class="sup-c" title="class">c</sup><br/>
+                </td>
+            </tr>
+            <tr>
+                <th>Restrictions</th>
+                <td>
+                    <a href="https://w3id.org/digitalconstruction/0.5/Variables#hasUnit">dicv:hasUnit</a> <span class="cardinality">value</span> <a href="https://w3id.org/digitalconstruction/0.5/Units#HR-PER-YR">dicu:HR-PER-YR</a><sup class="sup-c" title="class">c</sup><br/>
+                    <a href="https://w3id.org/digitalconstruction/0.5/Variables#hasQuantityKind">dicv:hasQuantityKind</a> <span class="cardinality">value</span> <a href="https://w3id.org/digitalconstruction/0.5/Units#TimeRatio">dicu:TimeRatio</a><sup class="sup-c" title="class">c</sup><br/>
+                </td>
+            </tr>
+        </table>
+    </div>
     <div class="entity class" id="AvoidableDisposition">
         <h3>AvoidableDisposition<sup title="class" class="sup-c">c</sup></h3>
         <table>
@@ -476,6 +646,21 @@
             </tr>
         </table>
     </div>
+    <div class="entity class" id="ComfortIssue">
+        <h3>ComfortIssue<sup title="class" class="sup-c">c</sup></h3>
+        <table>
+            <tr>
+                <th>URI</th>
+                <td><code>https://w3id.org/digitalconstruction/0.5/Occupancy#ComfortIssue</code></td>
+            </tr>
+            <tr>
+                <th>Super-classes</th>
+                <td>
+                    <a href="#OccupancyIssue">OccupancyIssue</a><sup class="sup-c" title="class">c</sup><br/>
+                </td>
+            </tr>
+        </table>
+    </div>
     <div class="entity class" id="ComfortProperty">
         <h3>ComfortProperty<sup title="class" class="sup-c">c</sup></h3>
         <table>
@@ -487,13 +672,58 @@
                 <th>Super-classes</th>
                 <td>
                     <a href="#OccupancyProperty">OccupancyProperty</a><sup class="sup-c" title="class">c</sup><br/>
+                    <a href="https://w3id.org/digitalconstruction/0.5/Entities#Quality">dice:Quality</a><sup class="sup-c" title="class">c</sup><br/>
                 </td>
             </tr>
             <tr>
                 <th>Sub-classes</th>
                 <td>
-                    <a href="#VisualComfort">VisualComfort</a><sup class="sup-c" title="class">c</sup><br/>
-                    <a href="#ThermalComfort">ThermalComfort</a><sup class="sup-c" title="class">c</sup><br/>
+                    <a href="#OccupancyComfort">OccupancyComfort</a><sup class="sup-c" title="class">c</sup><br/>
+                </td>
+            </tr>
+        </table>
+    </div>
+    <div class="entity class" id="EnvironmentProperty">
+        <h3>EnvironmentProperty<sup title="class" class="sup-c">c</sup></h3>
+        <table>
+            <tr>
+                <th>URI</th>
+                <td><code>https://w3id.org/digitalconstruction/0.5/Occupancy#EnvironmentProperty</code></td>
+            </tr>
+            <tr>
+                <th>Super-classes</th>
+                <td>
+                    <a href="https://w3id.org/digitalconstruction/0.5/Entities#Quality">dice:Quality</a><sup class="sup-c" title="class">c</sup><br/>
+                </td>
+            </tr>
+            <tr>
+                <th>Sub-classes</th>
+                <td>
+                    <a href="#AirQualityProperty">AirQualityProperty</a><sup class="sup-c" title="class">c</sup><br/>
+                    <a href="#Temperature">Temperature</a><sup class="sup-c" title="class">c</sup><br/>
+                    <a href="#Humidity">Humidity</a><sup class="sup-c" title="class">c</sup><br/>
+                    <a href="#AcousticProperty">AcousticProperty</a><sup class="sup-c" title="class">c</sup><br/>
+                </td>
+            </tr>
+            <tr>
+                <th>In domain of</th>
+                <td>
+                    <a href="#relatesToComfortPreference">relatesToComfortPreference</a><sup class="sup-op" title="object property">op</sup><br/>
+                </td>
+            </tr>
+        </table>
+    </div>
+    <div class="entity class" id="EquipmentSound">
+        <h3>EquipmentSound<sup title="class" class="sup-c">c</sup></h3>
+        <table>
+            <tr>
+                <th>URI</th>
+                <td><code>https://w3id.org/digitalconstruction/0.5/Occupancy#EquipmentSound</code></td>
+            </tr>
+            <tr>
+                <th>Super-classes</th>
+                <td>
+                    <a href="#SoundSource">SoundSource</a><sup class="sup-c" title="class">c</sup><br/>
                 </td>
             </tr>
         </table>
@@ -524,6 +754,57 @@
                 <th>Super-classes</th>
                 <td>
                     <a href="#AvoidableDisposition">AvoidableDisposition</a><sup class="sup-c" title="class">c</sup><br/>
+                </td>
+            </tr>
+            <tr>
+                <th>In range of</th>
+                <td>
+                    <a href="#possibleCauseOf">possibleCauseOf</a><sup class="sup-op" title="object property">op</sup><br/>
+                </td>
+            </tr>
+        </table>
+    </div>
+    <div class="entity class" id="HumanSound">
+        <h3>HumanSound<sup title="class" class="sup-c">c</sup></h3>
+        <table>
+            <tr>
+                <th>URI</th>
+                <td><code>https://w3id.org/digitalconstruction/0.5/Occupancy#HumanSound</code></td>
+            </tr>
+            <tr>
+                <th>Super-classes</th>
+                <td>
+                    <a href="#SoundSource">SoundSource</a><sup class="sup-c" title="class">c</sup><br/>
+                </td>
+            </tr>
+        </table>
+    </div>
+    <div class="entity class" id="Humidity">
+        <h3>Humidity<sup title="class" class="sup-c">c</sup></h3>
+        <table>
+            <tr>
+                <th>URI</th>
+                <td><code>https://w3id.org/digitalconstruction/0.5/Occupancy#Humidity</code></td>
+            </tr>
+            <tr>
+                <th>Super-classes</th>
+                <td>
+                    <a href="#EnvironmentProperty">EnvironmentProperty</a><sup class="sup-c" title="class">c</sup><br/>
+                </td>
+            </tr>
+        </table>
+    </div>
+    <div class="entity class" id="HumiditySensor">
+        <h3>HumiditySensor<sup title="class" class="sup-c">c</sup></h3>
+        <table>
+            <tr>
+                <th>URI</th>
+                <td><code>https://w3id.org/digitalconstruction/0.5/Occupancy#HumiditySensor</code></td>
+            </tr>
+            <tr>
+                <th>Super-classes</th>
+                <td>
+                    <a href="https://w3id.org/digitalconstruction/0.5/Entities#Sensor">dice:Sensor</a><sup class="sup-c" title="class">c</sup><br/>
                 </td>
             </tr>
         </table>
@@ -573,6 +854,51 @@
             </tr>
         </table>
     </div>
+    <div class="entity class" id="LightDimmer">
+        <h3>LightDimmer<sup title="class" class="sup-c">c</sup></h3>
+        <table>
+            <tr>
+                <th>URI</th>
+                <td><code>https://w3id.org/digitalconstruction/0.5/Occupancy#LightDimmer</code></td>
+            </tr>
+            <tr>
+                <th>Super-classes</th>
+                <td>
+                    <a href="https://w3id.org/digitalconstruction/0.5/Entities#Actuator">dice:Actuator</a><sup class="sup-c" title="class">c</sup><br/>
+                </td>
+            </tr>
+        </table>
+    </div>
+    <div class="entity class" id="LightSwitch">
+        <h3>LightSwitch<sup title="class" class="sup-c">c</sup></h3>
+        <table>
+            <tr>
+                <th>URI</th>
+                <td><code>https://w3id.org/digitalconstruction/0.5/Occupancy#LightSwitch</code></td>
+            </tr>
+            <tr>
+                <th>Super-classes</th>
+                <td>
+                    <a href="https://w3id.org/digitalconstruction/0.5/Entities#Actuator">dice:Actuator</a><sup class="sup-c" title="class">c</sup><br/>
+                </td>
+            </tr>
+        </table>
+    </div>
+    <div class="entity class" id="LuminanceSensor">
+        <h3>LuminanceSensor<sup title="class" class="sup-c">c</sup></h3>
+        <table>
+            <tr>
+                <th>URI</th>
+                <td><code>https://w3id.org/digitalconstruction/0.5/Occupancy#LuminanceSensor</code></td>
+            </tr>
+            <tr>
+                <th>Super-classes</th>
+                <td>
+                    <a href="https://w3id.org/digitalconstruction/0.5/Entities#Sensor">dice:Sensor</a><sup class="sup-c" title="class">c</sup><br/>
+                </td>
+            </tr>
+        </table>
+    </div>
     <div class="entity class" id="NoiseSensor">
         <h3>NoiseSensor<sup title="class" class="sup-c">c</sup></h3>
         <table>
@@ -609,6 +935,77 @@
             </tr>
         </table>
     </div>
+    <div class="entity class" id="OccupancyComfort">
+        <h3>OccupancyComfort<sup title="class" class="sup-c">c</sup></h3>
+        <table>
+            <tr>
+                <th>URI</th>
+                <td><code>https://w3id.org/digitalconstruction/0.5/Occupancy#OccupancyComfort</code></td>
+            </tr>
+            <tr>
+                <th>Super-classes</th>
+                <td>
+                    <a href="#ComfortProperty">ComfortProperty</a><sup class="sup-c" title="class">c</sup><br/>
+                </td>
+            </tr>
+            <tr>
+                <th>Sub-classes</th>
+                <td>
+                    <a href="#AcousticComfort">AcousticComfort</a><sup class="sup-c" title="class">c</sup><br/>
+                    <a href="#ThermalComfort">ThermalComfort</a><sup class="sup-c" title="class">c</sup><br/>
+                    <a href="#VisualComfort">VisualComfort</a><sup class="sup-c" title="class">c</sup><br/>
+                </td>
+            </tr>
+            <tr>
+                <th>In range of</th>
+                <td>
+                    <a href="#concernsProperty">concernsProperty</a><sup class="sup-op" title="object property">op</sup><br/>
+                </td>
+            </tr>
+        </table>
+    </div>
+    <div class="entity class" id="OccupancyIssue">
+        <h3>OccupancyIssue<sup title="class" class="sup-c">c</sup></h3>
+        <table>
+            <tr>
+                <th>URI</th>
+                <td><code>https://w3id.org/digitalconstruction/0.5/Occupancy#OccupancyIssue</code></td>
+            </tr>
+            <tr>
+                <th>Description</th>
+                <td>
+                    <p>An issue faced during occupancy that is about the residential unit and related to the occupancy comfort properties.</p>
+                </td>
+            </tr>
+            <tr>
+                <th>Super-classes</th>
+                <td>
+                    <a href="https://w3id.org/digitalconstruction/0.5/Information#Issue">dici:Issue</a><sup class="sup-c" title="class">c</sup><br/>
+                </td>
+            </tr>
+            <tr>
+                <th>Restrictions</th>
+                <td>
+                    <a href="https://w3id.org/digitalconstruction/0.5/Information#isAbout">dici:isAbout</a> <span class="cardinality">only</span> <a href="https://w3id.org/digitalconstruction/0.5/Entities#ResidentialUnit">dice:ResidentialUnit</a><sup class="sup-c" title="class">c</sup><br/>
+                </td>
+            </tr>
+            <tr>
+                <th>Sub-classes</th>
+                <td>
+                    <a href="#ComfortIssue">ComfortIssue</a><sup class="sup-c" title="class">c</sup><br/>
+                    <a href="#AcousticIssue">AcousticIssue</a><sup class="sup-c" title="class">c</sup><br/>
+                    <a href="#AirQualityIssue">AirQualityIssue</a><sup class="sup-c" title="class">c</sup><br/>
+                </td>
+            </tr>
+            <tr>
+                <th>In domain of</th>
+                <td>
+                    <a href="#concernsProperty">concernsProperty</a><sup class="sup-op" title="object property">op</sup><br/>
+                    <a href="#possibleCauseOf">possibleCauseOf</a><sup class="sup-op" title="object property">op</sup><br/>
+                </td>
+            </tr>
+        </table>
+    </div>
     <div class="entity class" id="OccupancyProperty">
         <h3>OccupancyProperty<sup title="class" class="sup-c">c</sup></h3>
         <table>
@@ -626,8 +1023,6 @@
                 <th>Sub-classes</th>
                 <td>
                     <a href="#ComfortProperty">ComfortProperty</a><sup class="sup-c" title="class">c</sup><br/>
-                    <a href="#AirQualityProperty">AirQualityProperty</a><sup class="sup-c" title="class">c</sup><br/>
-                    <a href="#AcousticProperty">AcousticProperty</a><sup class="sup-c" title="class">c</sup><br/>
                 </td>
             </tr>
         </table>
@@ -642,7 +1037,13 @@
             <tr>
                 <th>Super-classes</th>
                 <td>
-                    (<a href="https://w3id.org/digitalconstruction/0.5/Processes#BehaviorProcess">dicp:BehaviorProcess</a><sup class="sup-c" title="class">c</sup> and <a href="ub1bL223C58">ub1bL223C58</a><sup class="sup-c" title="class">c</sup> and <a href="ub1bL227C58">ub1bL227C58</a><sup class="sup-c" title="class">c</sup>)<br/>
+                    (<a href="https://w3id.org/digitalconstruction/0.5/Processes#BehaviorProcess">dicp:BehaviorProcess</a><sup class="sup-c" title="class">c</sup> and <a href="ub1bL435C58">ub1bL435C58</a><sup class="sup-c" title="class">c</sup> and <a href="ub1bL439C58">ub1bL439C58</a><sup class="sup-c" title="class">c</sup>)<br/>
+                </td>
+            </tr>
+            <tr>
+                <th>In domain of</th>
+                <td>
+                    <a href="#hasDriver">hasDriver</a><sup class="sup-op" title="object property">op</sup><br/>
                 </td>
             </tr>
         </table>
@@ -657,7 +1058,7 @@
             <tr>
                 <th>Super-classes</th>
                 <td>
-                    (<a href="https://w3id.org/digitalconstruction/0.5/Information#InformationContentEntity">dici:InformationContentEntity</a><sup class="sup-c" title="class">c</sup> and <a href="ub1bL240C57">ub1bL240C57</a><sup class="sup-c" title="class">c</sup>)<br/>
+                    (<a href="https://w3id.org/digitalconstruction/0.5/Information#Profile">dici:Profile</a><sup class="sup-c" title="class">c</sup> and <a href="ub1bL452C57">ub1bL452C57</a><sup class="sup-c" title="class">c</sup>)<br/>
                 </td>
             </tr>
             <tr>
@@ -683,6 +1084,34 @@
             </tr>
         </table>
     </div>
+    <div class="entity class" id="RangeConstraint">
+        <h3>RangeConstraint<sup title="class" class="sup-c">c</sup></h3>
+        <table>
+            <tr>
+                <th>URI</th>
+                <td><code>https://w3id.org/digitalconstruction/0.5/Occupancy#RangeConstraint</code></td>
+            </tr>
+            <tr>
+                <th>Description</th>
+                <td>
+                    <p>Constraint that relates the values of comfort properties to the values of environmental properties. For instance, good thermal comfort corresponds to tempeerture range 19-22 of environment, and fair comfort to ranges 17-19 and 22-26, and poor comfort to ranges outside of those.</p>
+                </td>
+            </tr>
+            <tr>
+                <th>Super-classes</th>
+                <td>
+                    <a href="https://w3id.org/digitalconstruction/0.5/Variables#ElementaryConstraint">dicv:ElementaryConstraint</a><sup class="sup-c" title="class">c</sup><br/>
+                </td>
+            </tr>
+            <tr>
+                <th>In range of</th>
+                <td>
+                    <a href="#hasComfortPreference">hasComfortPreference</a><sup class="sup-op" title="object property">op</sup><br/>
+                    <a href="#relatesToComfortPreference">relatesToComfortPreference</a><sup class="sup-op" title="object property">op</sup><br/>
+                </td>
+            </tr>
+        </table>
+    </div>
     <div class="entity class" id="SoundAbsorption">
         <h3>SoundAbsorption<sup title="class" class="sup-c">c</sup></h3>
         <table>
@@ -694,6 +1123,65 @@
                 <th>Super-classes</th>
                 <td>
                     <a href="#AcousticProperty">AcousticProperty</a><sup class="sup-c" title="class">c</sup><br/>
+                </td>
+            </tr>
+        </table>
+    </div>
+    <div class="entity class" id="SoundLevel">
+        <h3>SoundLevel<sup title="class" class="sup-c">c</sup></h3>
+        <table>
+            <tr>
+                <th>URI</th>
+                <td><code>https://w3id.org/digitalconstruction/0.5/Occupancy#SoundLevel</code></td>
+            </tr>
+            <tr>
+                <th>Super-classes</th>
+                <td>
+                    <a href="#AcousticProperty">AcousticProperty</a><sup class="sup-c" title="class">c</sup><br/>
+                </td>
+            </tr>
+        </table>
+    </div>
+    <div class="entity class" id="SoundLevelConstraint">
+        <h3>SoundLevelConstraint<sup title="class" class="sup-c">c</sup></h3>
+        <table>
+            <tr>
+                <th>URI</th>
+                <td><code>https://w3id.org/digitalconstruction/0.5/Occupancy#SoundLevelConstraint</code></td>
+            </tr>
+            <tr>
+                <th>Super-classes</th>
+                <td>
+                    <a href="https://w3id.org/digitalconstruction/0.5/Variables#QuantitativeConstraint">dicv:QuantitativeConstraint</a><sup class="sup-c" title="class">c</sup><br/>
+                </td>
+            </tr>
+            <tr>
+                <th>Restrictions</th>
+                <td>
+                    <a href="https://w3id.org/digitalconstruction/0.5/Variables#hasComparison">dicv:hasComparison</a> <span class="cardinality">value</span> <a href="https://w3id.org/digitalconstruction/0.5/Variables#LessOrEqual">dicv:LessOrEqual</a><sup class="sup-c" title="class">c</sup><br/>
+                    <a href="https://w3id.org/digitalconstruction/0.5/Variables#constrainsProperty">dicv:constrainsProperty</a> <span class="cardinality">only</span> <a href="#SoundLevel">SoundLevel</a><sup class="sup-c" title="class">c</sup><br/>
+                </td>
+            </tr>
+        </table>
+    </div>
+    <div class="entity class" id="SoundSource">
+        <h3>SoundSource<sup title="class" class="sup-c">c</sup></h3>
+        <table>
+            <tr>
+                <th>URI</th>
+                <td><code>https://w3id.org/digitalconstruction/0.5/Occupancy#SoundSource</code></td>
+            </tr>
+            <tr>
+                <th>Super-classes</th>
+                <td>
+                    <a href="https://w3id.org/digitalconstruction/0.5/Entities#MaterialEntity">dice:MaterialEntity</a><sup class="sup-c" title="class">c</sup><br/>
+                </td>
+            </tr>
+            <tr>
+                <th>Sub-classes</th>
+                <td>
+                    <a href="#EquipmentSound">EquipmentSound</a><sup class="sup-c" title="class">c</sup><br/>
+                    <a href="#HumanSound">HumanSound</a><sup class="sup-c" title="class">c</sup><br/>
                 </td>
             </tr>
         </table>
@@ -713,6 +1201,36 @@
             </tr>
         </table>
     </div>
+    <div class="entity class" id="Temperature">
+        <h3>Temperature<sup title="class" class="sup-c">c</sup></h3>
+        <table>
+            <tr>
+                <th>URI</th>
+                <td><code>https://w3id.org/digitalconstruction/0.5/Occupancy#Temperature</code></td>
+            </tr>
+            <tr>
+                <th>Super-classes</th>
+                <td>
+                    <a href="#EnvironmentProperty">EnvironmentProperty</a><sup class="sup-c" title="class">c</sup><br/>
+                </td>
+            </tr>
+        </table>
+    </div>
+    <div class="entity class" id="TemperatureSensor">
+        <h3>TemperatureSensor<sup title="class" class="sup-c">c</sup></h3>
+        <table>
+            <tr>
+                <th>URI</th>
+                <td><code>https://w3id.org/digitalconstruction/0.5/Occupancy#TemperatureSensor</code></td>
+            </tr>
+            <tr>
+                <th>Super-classes</th>
+                <td>
+                    <a href="https://w3id.org/digitalconstruction/0.5/Entities#Sensor">dice:Sensor</a><sup class="sup-c" title="class">c</sup><br/>
+                </td>
+            </tr>
+        </table>
+    </div>
     <div class="entity class" id="ThermalComfort">
         <h3>ThermalComfort<sup title="class" class="sup-c">c</sup></h3>
         <table>
@@ -723,7 +1241,28 @@
             <tr>
                 <th>Super-classes</th>
                 <td>
-                    <a href="#ComfortProperty">ComfortProperty</a><sup class="sup-c" title="class">c</sup><br/>
+                    <a href="#OccupancyComfort">OccupancyComfort</a><sup class="sup-c" title="class">c</sup><br/>
+                </td>
+            </tr>
+            <tr>
+                <th>Sub-classes</th>
+                <td>
+                    <a href="#AnnualThermalDiscomfortHours">AnnualThermalDiscomfortHours</a><sup class="sup-c" title="class">c</sup><br/>
+                </td>
+            </tr>
+        </table>
+    </div>
+    <div class="entity class" id="Thermostat">
+        <h3>Thermostat<sup title="class" class="sup-c">c</sup></h3>
+        <table>
+            <tr>
+                <th>URI</th>
+                <td><code>https://w3id.org/digitalconstruction/0.5/Occupancy#Thermostat</code></td>
+            </tr>
+            <tr>
+                <th>Super-classes</th>
+                <td>
+                    <a href="https://w3id.org/digitalconstruction/0.5/Entities#Actuator">dice:Actuator</a><sup class="sup-c" title="class">c</sup><br/>
                 </td>
             </tr>
         </table>
@@ -753,7 +1292,7 @@
             <tr>
                 <th>Super-classes</th>
                 <td>
-                    <a href="#ComfortProperty">ComfortProperty</a><sup class="sup-c" title="class">c</sup><br/>
+                    <a href="#OccupancyComfort">OccupancyComfort</a><sup class="sup-c" title="class">c</sup><br/>
                 </td>
             </tr>
         </table>
@@ -762,9 +1301,106 @@
 <section id="objectproperties">
     <h2>Object Properties <span style="float:right; font-size:smaller;"><a href="">&uparrow;</a></span></h2>
     <ul class="hlist">
+        <li><a href="#concernsProperty">concernsProperty</a></li>
+        <li><a href="#hasAcousticClass">hasAcousticClass</a></li>
+        <li><a href="#hasComfortPreference">hasComfortPreference</a></li>
+        <li><a href="#hasDriver">hasDriver</a></li>
         <li><a href="#hasProfilingPeriod">hasProfilingPeriod</a></li>
         <li><a href="#intendsToPrevent">intendsToPrevent</a></li>
+        <li><a href="#poseRestriction">poseRestriction</a></li>
+        <li><a href="#possibleCauseOf">possibleCauseOf</a></li>
+        <li><a href="#relatesToComfortPreference">relatesToComfortPreference</a></li>
     </ul>
+    <div class="entity property" id="concernsProperty">
+        <h3>concernsProperty<sup title="object property" class="sup-op">op</sup></h3>
+        <table>
+            <tr>
+                <th>URI</th>
+                <td><code>https://w3id.org/digitalconstruction/0.5/Occupancy#concernsProperty</code></td>
+            </tr>
+            <tr>
+                <th>Domain(s)</th>
+                <td>
+                    <a href="#OccupancyIssue">OccupancyIssue</a><sup class="sup-c" title="class">c</sup>
+                </td>
+            </tr>
+            <tr>
+                <th>Range(s)</th>
+                <td>
+                    <a href="#OccupancyComfort">OccupancyComfort</a><sup class="sup-c" title="class">c</sup>
+                </td>
+            </tr>
+        </table>
+    </div>
+    <div class="entity property" id="hasAcousticClass">
+        <h3>hasAcousticClass<sup title="object property" class="sup-op">op</sup></h3>
+        <table>
+            <tr>
+                <th>URI</th>
+                <td><code>https://w3id.org/digitalconstruction/0.5/Occupancy#hasAcousticClass</code></td>
+            </tr>
+            <tr>
+                <th>Domain(s)</th>
+                <td>
+                    <a href="https://w3id.org/digitalconstruction/0.5/Entities#BuiltAsset">dice:BuiltAsset</a><sup class="sup-c" title="class">c</sup>
+                </td>
+            </tr>
+            <tr>
+                <th>Range(s)</th>
+                <td>
+                    <a href="#AcousticClass">AcousticClass</a><sup class="sup-c" title="class">c</sup>
+                </td>
+            </tr>
+        </table>
+    </div>
+    <div class="entity property" id="hasComfortPreference">
+        <h3>hasComfortPreference<sup title="object property" class="sup-op">op</sup></h3>
+        <table>
+            <tr>
+                <th>URI</th>
+                <td><code>https://w3id.org/digitalconstruction/0.5/Occupancy#hasComfortPreference</code></td>
+            </tr>
+            <tr>
+                <th>Description</th>
+                <td>
+                    Relates the occupant behavior to the preference constraints concerning the occupancy comfort properties. Constraints can define a range of values with an associated preference degree. For example, an occupant can want a temperature range between 20-22 degrees Celsius with preference degree 0.8.
+                </td>
+            </tr>
+            <tr>
+                <th>Super-properties</th>
+                <td>
+                    <a href="https://w3id.org/digitalconstruction/0.5/Variables#isConstrainedBy">dicv:isConstrainedBy</a>
+                </td>
+            </tr>
+            <tr>
+                <th>Domain(s)</th>
+                <td>
+                    <a href="https://w3id.org/digitalconstruction/0.5/Agents#Occupant">dica:Occupant</a><sup class="sup-c" title="class">c</sup>
+                </td>
+            </tr>
+            <tr>
+                <th>Range(s)</th>
+                <td>
+                    <a href="#RangeConstraint">RangeConstraint</a><sup class="sup-c" title="class">c</sup>
+                </td>
+            </tr>
+        </table>
+    </div>
+    <div class="entity property" id="hasDriver">
+        <h3>hasDriver<sup title="object property" class="sup-op">op</sup></h3>
+        <table>
+            <tr>
+                <th>URI</th>
+                <td><code>https://w3id.org/digitalconstruction/0.5/Occupancy#hasDriver</code></td>
+            </tr>
+            <tr>
+                <th>Domain(s)</th>
+                <td>
+                    <a href="#OccupantBehavior">OccupantBehavior</a><sup class="sup-c" title="class">c</sup>
+                </td>
+            </tr>
+        </table>
+    </div>
     <div class="entity property" id="hasProfilingPeriod">
         <h3>hasProfilingPeriod<sup title="object property" class="sup-op">op</sup></h3>
         <table>
@@ -803,6 +1439,147 @@
                 <th>Range(s)</th>
                 <td>
                     <a href="#AvoidableDisposition">AvoidableDisposition</a><sup class="sup-c" title="class">c</sup>
+                </td>
+            </tr>
+        </table>
+    </div>
+    <div class="entity property" id="poseRestriction">
+        <h3>poseRestriction<sup title="object property" class="sup-op">op</sup></h3>
+        <table>
+            <tr>
+                <th>URI</th>
+                <td><code>https://w3id.org/digitalconstruction/0.5/Occupancy#poseRestriction</code></td>
+            </tr>
+            <tr>
+                <th>Domain(s)</th>
+                <td>
+                    <a href="https://w3id.org/digitalconstruction/0.5/Information#RegulatoryOrder">dici:RegulatoryOrder</a><sup class="sup-c" title="class">c</sup>
+                </td>
+            </tr>
+            <tr>
+                <th>Range(s)</th>
+                <td>
+                    <a href="https://w3id.org/digitalconstruction/0.5/Variables#Constraint">dicv:Constraint</a><sup class="sup-c" title="class">c</sup>
+                </td>
+            </tr>
+        </table>
+    </div>
+    <div class="entity property" id="possibleCauseOf">
+        <h3>possibleCauseOf<sup title="object property" class="sup-op">op</sup></h3>
+        <table>
+            <tr>
+                <th>URI</th>
+                <td><code>https://w3id.org/digitalconstruction/0.5/Occupancy#possibleCauseOf</code></td>
+            </tr>
+            <tr>
+                <th>Domain(s)</th>
+                <td>
+                    <a href="#OccupancyIssue">OccupancyIssue</a><sup class="sup-c" title="class">c</sup>
+                </td>
+            </tr>
+            <tr>
+                <th>Range(s)</th>
+                <td>
+                    <a href="#HealthProblem">HealthProblem</a><sup class="sup-c" title="class">c</sup>
+                </td>
+            </tr>
+        </table>
+    </div>
+    <div class="entity property" id="relatesToComfortPreference">
+        <h3>relatesToComfortPreference<sup title="object property" class="sup-op">op</sup></h3>
+        <table>
+            <tr>
+                <th>URI</th>
+                <td><code>https://w3id.org/digitalconstruction/0.5/Occupancy#relatesToComfortPreference</code></td>
+            </tr>
+            <tr>
+                <th>Super-properties</th>
+                <td>
+                    <a href="https://w3id.org/digitalconstruction/0.5/Variables#isConstrainedBy">dicv:isConstrainedBy</a>
+                </td>
+            </tr>
+            <tr>
+                <th>Domain(s)</th>
+                <td>
+                    <a href="#EnvironmentProperty">EnvironmentProperty</a><sup class="sup-c" title="class">c</sup>
+                </td>
+            </tr>
+            <tr>
+                <th>Range(s)</th>
+                <td>
+                    <a href="#RangeConstraint">RangeConstraint</a><sup class="sup-c" title="class">c</sup>
+                </td>
+            </tr>
+        </table>
+    </div>
+</section>
+
+<section id="datatypeproperties">
+    <h2>Datatype Properties <span style="float:right; font-size:smaller;"><a href="">&uparrow;</a></span></h2>
+    <ul class="hlist">
+        <li><a href="#annualHoursOfThermalDiscomfort">annualHoursOfThermalDiscomfort</a></li>
+        <li><a href="#hasMaximumOccupancy">hasMaximumOccupancy</a></li>
+        <li><a href="#hasOccupation">hasOccupation</a></li>
+    </ul>
+    <div class="entity property" id="annualHoursOfThermalDiscomfort">
+        <h3>annualHoursOfThermalDiscomfort<sup title="datatype property" class="sup-dp">dp</sup></h3>
+        <table>
+            <tr>
+                <th>URI</th>
+                <td><code>https://w3id.org/digitalconstruction/0.5/Occupancy#hasAnnualHoursOfThermalDiscomfort</code></td>
+            </tr>
+            <tr>
+                <th>Description</th>
+                <td>
+                    Thermal discomfort, measured as a number of hours when the temperature is above 27 degrees celsius
+                </td>
+            </tr>
+            <tr>
+                <th>Range(s)</th>
+                <td>
+                    <a href="http://www.w3.org/2001/XMLSchema#decimal">xsd:decimal</a><sup class="sup-c" title="class">c</sup>
+                </td>
+            </tr>
+        </table>
+    </div>
+    <div class="entity property" id="hasMaximumOccupancy">
+        <h3>hasMaximumOccupancy<sup title="datatype property" class="sup-dp">dp</sup></h3>
+        <table>
+            <tr>
+                <th>URI</th>
+                <td><code>https://w3id.org/digitalconstruction/0.5/Occupancy#hasMaximumOccupancy</code></td>
+            </tr>
+            <tr>
+                <th>Domain(s)</th>
+                <td>
+                    <a href="https://w3id.org/digitalconstruction/0.5/Entities#ResidentialUnit">dice:ResidentialUnit</a><sup class="sup-c" title="class">c</sup>
+                </td>
+            </tr>
+            <tr>
+                <th>Range(s)</th>
+                <td>
+                    <a href="http://www.w3.org/2001/XMLSchema#positiveInteger">xsd:positiveInteger</a><sup class="sup-c" title="class">c</sup>
+                </td>
+            </tr>
+        </table>
+    </div>
+    <div class="entity property" id="hasOccupation">
+        <h3>hasOccupation<sup title="datatype property" class="sup-dp">dp</sup></h3>
+        <table>
+            <tr>
+                <th>URI</th>
+                <td><code>https://w3id.org/digitalconstruction/0.5/Occupancy#hasOccupation</code></td>
+            </tr>
+            <tr>
+                <th>Domain(s)</th>
+                <td>
+                    <a href="https://w3id.org/digitalconstruction/0.5/Agents#Person">dica:Person</a><sup class="sup-c" title="class">c</sup>
+                </td>
+            </tr>
+            <tr>
+                <th>Range(s)</th>
+                <td>
+                    <a href="http://www.w3.org/2001/XMLSchema#string">xsd:string</a><sup class="sup-c" title="class">c</sup>
                 </td>
             </tr>
         </table>
@@ -929,7 +1706,63 @@
   <section id="namedindividuals">
     <h2>Named Individuals <span style="float:right; font-size:smaller;"><a href="">&uparrow;</a></span></h2>
     <ul class="hlist">
+        <li><a href="#HR-PER-YR">HR-PER-YR</a></li>
+        <li><a href="#TimeRatio">TimeRatio</a></li>
+        <li><a href="#annualHoursOfThermalDiscomfort">annualHoursOfThermalDiscomfort</a></li>
     </ul>
+    <div class="entity named_individual" id="annualHoursOfThermalDiscomfort">
+        <h3>annualHoursOfThermalDiscomfort<sup title="named individual" class="sup-ni">ni</sup></h3>
+        <table>
+            <tr>
+                <th>URI</th>
+                <td>
+                  <code>
+                      https://w3id.org/digitalconstruction/0.5/Occupancy#hasAnnualHoursOfThermalDiscomfort
+                  
+                  </code>
+                </td>
+            </tr>
+            <dt>Classes(s)</dt>
+            <dd>
+                <a href="http://www.w3.org/1999/02/22-rdf-syntax-ns#Property">rdf:Property</a><br/>
+                <a href="http://www.w3.org/2002/07/owl#DatatypeProperty">owl:DatatypeProperty</a><br/>
+            </dd>
+            <tr>
+                <th>Description</th>
+                <td>
+                    Thermal discomfort, measured as a number of hours when the temperature is above 27 degrees celsius
+                </td>
+            </tr>
+        </table>
+    </div>
+    <div class="entity named_individual" id="HR-PER-YR">
+        <h3>HR-PER-YR<sup title="named individual" class="sup-ni">ni</sup></h3>
+        <table>
+            <tr>
+                <th>URI</th>
+                <td>
+                  <code>
+                      https://w3id.org/digitalconstruction/0.5/Units#HR-PER-YR
+                  
+                  </code>
+                </td>
+            </tr>
+        </table>
+    </div>
+    <div class="entity named_individual" id="TimeRatio">
+        <h3>TimeRatio<sup title="named individual" class="sup-ni">ni</sup></h3>
+        <table>
+            <tr>
+                <th>URI</th>
+                <td>
+                  <code>
+                      https://w3id.org/digitalconstruction/0.5/Units#TimeRatio
+                  
+                  </code>
+                </td>
+            </tr>
+        </table>
+    </div>
 </section>
   
   <section id="namespaces">
@@ -949,6 +1782,8 @@
         <dd><code>https://w3id.org/digitalconstruction/0.5/Information#</code></dd>
         <dt>dicp</dt>
         <dd><code>https://w3id.org/digitalconstruction/0.5/Processes#</code></dd>
+        <dt>dicu</dt>
+        <dd><code>https://w3id.org/digitalconstruction/0.5/Units#</code></dd>
         <dt>dicv</dt>
         <dd><code>https://w3id.org/digitalconstruction/0.5/Variables#</code></dd>
         <dt>owl</dt>
