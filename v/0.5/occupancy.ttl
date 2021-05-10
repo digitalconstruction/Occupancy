@@ -100,7 +100,6 @@ vann:preferredNamespaceUri rdf:type owl:AnnotationProperty .
 
 ###  https://w3id.org/digitalconstruction/0.5/Occupancy#hasComfortPreference
 :hasComfortPreference rdf:type owl:ObjectProperty ;
-                      rdfs:subPropertyOf dicv:isConstrainedBy ;
                       rdfs:domain dica:Occupant ;
                       rdfs:range :RangeConstraint ;
                       rdfs:comment "Relates the occupant behavior to the preference constraints concerning the occupancy comfort properties. Constraints can define a range of values with an associated preference degree. For example, an occupant can want a temperature range between 20-22 degrees Celsius with preference degree 0.8." ;
@@ -117,6 +116,29 @@ vann:preferredNamespaceUri rdf:type owl:AnnotationProperty .
                     rdfs:domain :OccupantProfile ;
                     rdfs:range dice:TimeInterval ;
                     rdfs:label "hasProfilingPeriod" .
+
+
+###  https://w3id.org/digitalconstruction/0.5/Occupancy#hasSoundInsulationProperty
+:hasSoundInsulationProperty rdf:type owl:ObjectProperty ;
+                            rdfs:subPropertyOf dicv:hasProperty ;
+                            rdfs:domain dice:BuildingObject ;
+                            rdfs:range :SoundInsulationProperty ;
+                            rdfs:label "hasSoundInsulationProperty" .
+
+
+###  https://w3id.org/digitalconstruction/0.5/Occupancy#hasSoundPerformance
+:hasSoundPerformance rdf:type owl:ObjectProperty ;
+                     rdfs:subPropertyOf dicv:hasProperty ;
+                     rdfs:domain :SoundSource ;
+                     rdfs:range :SoundPerformance ;
+                     rdfs:label "hasSoundPerformance" .
+
+
+###  https://w3id.org/digitalconstruction/0.5/Occupancy#hasSoundSource
+:hasSoundSource rdf:type owl:ObjectProperty ;
+                rdfs:domain :Sound ;
+                rdfs:range :SoundSource ;
+                rdfs:label "hasSoundSource" .
 
 
 ###  https://w3id.org/digitalconstruction/0.5/Occupancy#intendsToPrevent
@@ -142,7 +164,6 @@ vann:preferredNamespaceUri rdf:type owl:AnnotationProperty .
 
 ###  https://w3id.org/digitalconstruction/0.5/Occupancy#relatesToComfortPreference
 :relatesToComfortPreference rdf:type owl:ObjectProperty ;
-                            rdfs:subPropertyOf dicv:isConstrainedBy ;
                             rdfs:domain :EnvironmentProperty ;
                             rdfs:range :RangeConstraint ;
                             rdfs:label "relatesToComfortPreference" .
@@ -264,13 +285,13 @@ vann:preferredNamespaceUri rdf:type owl:AnnotationProperty .
 
 ###  https://w3id.org/digitalconstruction/0.5/Occupancy#AirborneSoundInsulation
 :AirborneSoundInsulation rdf:type owl:Class ;
-                         rdfs:subClassOf :AcousticProperty ;
+                         rdfs:subClassOf :SoundInsulationProperty ;
                          rdfs:label "AirborneSoundInsulation" .
 
 
 ###  https://w3id.org/digitalconstruction/0.5/Occupancy#AirborneSoundReductionIndex
 :AirborneSoundReductionIndex rdf:type owl:Class ;
-                             rdfs:subClassOf :AcousticProperty ;
+                             rdfs:subClassOf :SoundInsulationProperty ;
                              rdfs:label "AirborneSoundReductionIndex" .
 
 
@@ -299,6 +320,12 @@ vann:preferredNamespaceUri rdf:type owl:AnnotationProperty .
                       rdfs:label "AvoidableDisposition" .
 
 
+###  https://w3id.org/digitalconstruction/0.5/Occupancy#Ceiling
+:Ceiling rdf:type owl:Class ;
+         rdfs:subClassOf dice:BuildingObject ;
+         rdfs:label "Ceiling" .
+
+
 ###  https://w3id.org/digitalconstruction/0.5/Occupancy#ComfortIssue
 :ComfortIssue rdf:type owl:Class ;
               rdfs:subClassOf :OccupancyIssue ;
@@ -312,6 +339,12 @@ vann:preferredNamespaceUri rdf:type owl:AnnotationProperty .
                  rdfs:label "ComfortProperty" .
 
 
+###  https://w3id.org/digitalconstruction/0.5/Occupancy#Door
+:Door rdf:type owl:Class ;
+      rdfs:subClassOf dice:BuildingObject ;
+      rdfs:label "Door" .
+
+
 ###  https://w3id.org/digitalconstruction/0.5/Occupancy#EnvironmentProperty
 :EnvironmentProperty rdf:type owl:Class ;
                      rdfs:subClassOf dice:Quality ;
@@ -320,14 +353,32 @@ vann:preferredNamespaceUri rdf:type owl:AnnotationProperty .
 
 ###  https://w3id.org/digitalconstruction/0.5/Occupancy#EquipmentSound
 :EquipmentSound rdf:type owl:Class ;
-                rdfs:subClassOf :SoundSource ;
+                rdfs:subClassOf :Sound ;
                 rdfs:label "EquipmentSound" .
+
+
+###  https://w3id.org/digitalconstruction/0.5/Occupancy#FacadeElement
+:FacadeElement rdf:type owl:Class ;
+               rdfs:subClassOf dice:BuildingObject ;
+               rdfs:label "FacadeElement" .
 
 
 ###  https://w3id.org/digitalconstruction/0.5/Occupancy#FlankingSoundTransmission
 :FlankingSoundTransmission rdf:type owl:Class ;
-                           rdfs:subClassOf :AcousticProperty ;
+                           rdfs:subClassOf :SoundInsulationProperty ;
                            rdfs:label "FlankingSoundTransmission" .
+
+
+###  https://w3id.org/digitalconstruction/0.5/Occupancy#Floor
+:Floor rdf:type owl:Class ;
+       rdfs:subClassOf dice:BuildingObject ;
+       rdfs:label "Floor" .
+
+
+###  https://w3id.org/digitalconstruction/0.5/Occupancy#FloorCovering
+:FloorCovering rdf:type owl:Class ;
+               rdfs:subClassOf dice:BuildingObject ;
+               rdfs:label "FloorCovering" .
 
 
 ###  https://w3id.org/digitalconstruction/0.5/Occupancy#HealthProblem
@@ -338,7 +389,7 @@ vann:preferredNamespaceUri rdf:type owl:AnnotationProperty .
 
 ###  https://w3id.org/digitalconstruction/0.5/Occupancy#HumanSound
 :HumanSound rdf:type owl:Class ;
-            rdfs:subClassOf :SoundSource ;
+            rdfs:subClassOf :Sound ;
             rdfs:label "HumanSound" .
 
 
@@ -356,7 +407,7 @@ vann:preferredNamespaceUri rdf:type owl:AnnotationProperty .
 
 ###  https://w3id.org/digitalconstruction/0.5/Occupancy#ImpactSoundInsulationLevel
 :ImpactSoundInsulationLevel rdf:type owl:Class ;
-                            rdfs:subClassOf :AcousticProperty ;
+                            rdfs:subClassOf :SoundInsulationProperty ;
                             rdfs:label "ImpactSoundInsulationLevel" .
 
 
@@ -366,9 +417,19 @@ vann:preferredNamespaceUri rdf:type owl:AnnotationProperty .
                             rdfs:label "IndoorAirQualityRegulation" .
 
 
+###  https://w3id.org/digitalconstruction/0.5/Occupancy#Joint
+:Joint rdf:type owl:Class ;
+       rdfs:subClassOf dice:BuildingObject ,
+                       [ rdf:type owl:Restriction ;
+                         owl:onProperty :hasSoundInsulationProperty ;
+                         owl:allValuesFrom :JointSoundInsulation
+                       ] ;
+       rdfs:label "Joint" .
+
+
 ###  https://w3id.org/digitalconstruction/0.5/Occupancy#JointSoundInsulation
 :JointSoundInsulation rdf:type owl:Class ;
-                      rdfs:subClassOf :AcousticProperty ;
+                      rdfs:subClassOf :SoundInsulationProperty ;
                       rdfs:label "JointSoundInsulation" .
 
 
@@ -398,10 +459,10 @@ vann:preferredNamespaceUri rdf:type owl:AnnotationProperty .
 
 ###  https://w3id.org/digitalconstruction/0.5/Occupancy#OccupancyActivity
 :OccupancyActivity rdf:type owl:Class ;
-                   owl:equivalentClass [ rdf:type owl:Restriction ;
-                                         owl:onProperty dica:hasAgent ;
-                                         owl:allValuesFrom dica:Occupant
-                                       ] ;
+                   # owl:equivalentClass [ rdf:type owl:Restriction ;
+                   #                       owl:onProperty dica:hasAgent ;
+                   #                       owl:allValuesFrom dica:Occupant
+                   #                     ] ;
                    rdfs:subClassOf dicp:Activity ;
                    rdfs:label "OccupancyActivity" .
 
@@ -472,10 +533,22 @@ vann:preferredNamespaceUri rdf:type owl:AnnotationProperty .
                  rdfs:label "RangeConstraint" .
 
 
+###  https://w3id.org/digitalconstruction/0.5/Occupancy#Sound
+:Sound rdf:type owl:Class ;
+       rdfs:subClassOf dice:Occurrent ;
+       rdfs:label "Sound" .
+
+
 ###  https://w3id.org/digitalconstruction/0.5/Occupancy#SoundAbsorption
 :SoundAbsorption rdf:type owl:Class ;
-                 rdfs:subClassOf :AcousticProperty ;
+                 rdfs:subClassOf :SoundInsulationProperty ;
                  rdfs:label "SoundAbsorption" .
+
+
+###  https://w3id.org/digitalconstruction/0.5/Occupancy#SoundInsulationProperty
+:SoundInsulationProperty rdf:type owl:Class ;
+                         rdfs:subClassOf :AcousticProperty ;
+                         rdfs:label "SoundInsulationProperty" .
 
 
 ###  https://w3id.org/digitalconstruction/0.5/Occupancy#SoundLevel
@@ -496,6 +569,12 @@ vann:preferredNamespaceUri rdf:type owl:AnnotationProperty .
                                         owl:hasValue dicv:LessOrEqual
                                       ] ;
                       rdfs:label "SoundLevelConstraint" .
+
+
+###  https://w3id.org/digitalconstruction/0.5/Occupancy#SoundPerformance
+:SoundPerformance rdf:type owl:Class ;
+                  rdfs:subClassOf :AcousticProperty ;
+                  rdfs:label "SoundPerformance" .
 
 
 ###  https://w3id.org/digitalconstruction/0.5/Occupancy#SoundSource
@@ -550,6 +629,12 @@ vann:preferredNamespaceUri rdf:type owl:AnnotationProperty .
                rdfs:label "VisualComfort" .
 
 
+###  https://w3id.org/digitalconstruction/0.5/Occupancy#Wall
+:Wall rdf:type owl:Class ;
+      rdfs:subClassOf dice:BuildingObject ;
+      rdfs:label "Wall" .
+
+
 #################################################################
 #    Individuals
 #################################################################
@@ -570,8 +655,8 @@ dicu:TimeRatio rdf:type owl:NamedIndividual .
 #    Annotations
 #################################################################
 
-:hasAnnualHoursOfThermalDiscomfort rdfs:label "annualHoursOfThermalDiscomfort" ;
-                                   rdfs:comment "Thermal discomfort, measured as a number of hours when the temperature is above 27 degrees celsius" .
+:hasAnnualHoursOfThermalDiscomfort rdfs:comment "Thermal discomfort, measured as a number of hours when the temperature is above 27 degrees celsius" ;
+                                   rdfs:label "hasAnnualHoursOfThermalDiscomfort" .
 
 
 ###  Generated by the OWL API (version 4.5.9.2019-02-01T07:24:44Z) https://github.com/owlcs/owlapi
